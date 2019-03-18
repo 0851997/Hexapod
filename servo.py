@@ -22,40 +22,39 @@ r = GPIO.PWM(3, 50)
 def angleToCycle(i):
       x = i/180*8.5+2.5
       return x
-
-# the range is 0...180
-for s in range(181):
-      y = angleToCycle(s)
       
-      p.start(y)
-      k.start(y)
-      r.start(y)
+      p.start(6)
+      k.start(6)
+      r.start(6)
      
       try:
-      while True:
-            # 0 graden (neutraal)
-            p.ChangeDutyCycle(y)
-            k.ChangeDutyCycle(y)
-            r.ChangeDutyCycle(y)
-            sleep(1)
+        while True:
+              print('Degree between 0...180:')
+              s = input()
+              y = angleToCycle(s)
+              # 0 graden (neutraal)
+              p.ChangeDutyCycle(y)
+              k.ChangeDutyCycle(y)
+              r.ChangeDutyCycle(y)
+              sleep(1)
 
-            # -90 graden (rechts)
-            p.ChangeDutyCycle(y)
-            r.ChangeDutyCycle(y)
-            k.ChangeDutyCycle(y)
-            sleep(1)
+              # -90 graden (rechts)
+              p.ChangeDutyCycle(y)
+              r.ChangeDutyCycle(y)
+              k.ChangeDutyCycle(y)
+              sleep(1)
 
-            # 0 graden (neutraal)
-            p.ChangeDutyCycle(y)
-            r.ChangeDutyCycle(y)
-            k.ChangeDutyCycle(y)
-            sleep(1)
+              # 0 graden (neutraal)
+              p.ChangeDutyCycle(y)
+              r.ChangeDutyCycle(y)
+              k.ChangeDutyCycle(y)
+              sleep(1)
 
-            # 90 graden (links)
-            p.ChangeDutyCycle(y)
-            k.ChangeDutyCycle(y)
-            r.ChangeDutyCycle(y)
-            sleep(1)
+              # 90 graden (links)
+              p.ChangeDutyCycle(y)
+              k.ChangeDutyCycle(y)
+              r.ChangeDutyCycle(y)
+              sleep(1)
              
       except KeyboardInterrupt:
         # Stop PWM op GPIO.
@@ -64,3 +63,5 @@ for s in range(181):
         r.stop()
         # GPIO netjes afsluiten
         GPIO.cleanup()
+
+        
