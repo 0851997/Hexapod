@@ -1,15 +1,15 @@
 #!/bin/python
- 
+
 # importeer de GPIO bibliotheek.
 import RPi.GPIO as GPIO
 # Importeer de time biblotheek voor tijdfuncties.
 from time import sleep
- 
+
 # Zet de pinmode op Broadcom SOC.
 GPIO.setmode(GPIO.BCM)
 # Zet waarschuwingen uit.
 GPIO.setwarnings(False)
- 
+
 # Zet de GPIO pin als uitgang.
 GPIO.setup(4, GPIO.OUT)
 GPIO.setup(2, GPIO.OUT)
@@ -22,46 +22,27 @@ r = GPIO.PWM(3, 50)
 def angleToCycle(i):
       x = i/180*8.5+2.5
       return x
-      
-      p.start(6)
-      k.start(6)
-      r.start(6)
-     
-      try:
-        while True:
-              print('Degree between 0...180:')
-              s = input()
-              y = angleToCycle(s)
-              # 0 graden (neutraal)
-              p.ChangeDutyCycle(y)
-              k.ChangeDutyCycle(y)
-              r.ChangeDutyCycle(y)
-              sleep(1)
 
-              # -90 graden (rechts)
-              p.ChangeDutyCycle(y)
-              r.ChangeDutyCycle(y)
-              k.ChangeDutyCycle(y)
-              sleep(1)
+p.start(6)
+k.start(6)
+r.start(6)
 
-              # 0 graden (neutraal)
-              p.ChangeDutyCycle(y)
-              r.ChangeDutyCycle(y)
-              k.ChangeDutyCycle(y)
-              sleep(1)
+try:
+  while True:
+      print('Degree between 0...180:')
+      s = input()
+      y = angleToCycle(float(s))
+      # 0 graden (neutraal)
+      p.ChangeDutyCycle(y)
+      k.ChangeDutyCycle(y)
+      r.ChangeDutyCycle(y)
+      sleep(1)
 
-              # 90 graden (links)
-              p.ChangeDutyCycle(y)
-              k.ChangeDutyCycle(y)
-              r.ChangeDutyCycle(y)
-              sleep(1)
-             
-      except KeyboardInterrupt:
-        # Stop PWM op GPIO.
-        p.stop()
-        k.stop()
-        r.stop()
-        # GPIO netjes afsluiten
-        GPIO.cleanup()
+except KeyboardInterrupt:
+  # Stop PWM op GPIO.
+  p.stop()
+  k.stop()
+  r.stop()
+  # GPIO netjes afsluiten
+  GPIO.cleanup()
 
-        
