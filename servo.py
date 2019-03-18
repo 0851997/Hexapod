@@ -19,40 +19,48 @@ p = GPIO.PWM(4, 50)
 k = GPIO.PWM(2, 50)
 r = GPIO.PWM(3, 50)
 # Start PWM op de GPIO pin met een duty-cycle van 6%
-p.start(6)
-k.start(6)
-r.start(6)
- 
-try:
-  while True:
-    # 0 graden (neutraal)
-    p.ChangeDutyCycle(6)
-    k.ChangeDutyCycle(6)
-    r.ChangeDutyCycle(6)
-    sleep(1)
- 
-    # -90 graden (rechts)
-    p.ChangeDutyCycle(2.5)
-    r.ChangeDutyCycle(2.5)
-    k.ChangeDutyCycle(2.5)
-    sleep(1)
- 
-    # 0 graden (neutraal)
-    p.ChangeDutyCycle(6)
-    r.ChangeDutyCycle(6)
-    k.ChangeDutyCycle(6)
-    sleep(1)
- 
-    # 90 graden (links)
-    p.ChangeDutyCycle(11)
-    k.ChangeDutyCycle(11)
-    r.ChangeDutyCycle(11)
-    sleep(1)
- 
-except KeyboardInterrupt:  
-  # Stop PWM op GPIO.
-  p.stop()
-  k.stop()
-  r.stop()
-  # GPIO netjes afsluiten
-  GPIO.cleanup()
+def angleToCycle(i):
+      x = i/180*8.5+2.5
+      return x
+
+# the range is 0...180
+for s in range(181):
+      y = angleToCycle(s)
+      
+      p.start(y)
+      k.start(y)
+      r.start(y)
+     
+      try:
+      while True:
+            # 0 graden (neutraal)
+            p.ChangeDutyCycle(y)
+            k.ChangeDutyCycle(y)
+            r.ChangeDutyCycle(y)
+            sleep(1)
+
+            # -90 graden (rechts)
+            p.ChangeDutyCycle(y)
+            r.ChangeDutyCycle(y)
+            k.ChangeDutyCycle(y)
+            sleep(1)
+
+            # 0 graden (neutraal)
+            p.ChangeDutyCycle(y)
+            r.ChangeDutyCycle(y)
+            k.ChangeDutyCycle(y)
+            sleep(1)
+
+            # 90 graden (links)
+            p.ChangeDutyCycle(y)
+            k.ChangeDutyCycle(y)
+            r.ChangeDutyCycle(y)
+            sleep(1)
+             
+      except KeyboardInterrupt:
+        # Stop PWM op GPIO.
+        p.stop()
+        k.stop()
+        r.stop()
+        # GPIO netjes afsluiten
+        GPIO.cleanup()
