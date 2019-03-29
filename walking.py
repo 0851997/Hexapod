@@ -15,3 +15,10 @@ if ser.isOpen():
         ser.write("#0 P2500\r".encode())
         sleep(1)
 ser.close()
+
+
+#Class    walking
+#Function tripodWalking
+#         stopping
+#         send
+#         setup
