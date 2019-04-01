@@ -40,7 +40,8 @@ try:
             u = "#{}".format(int(r))
             h = "P{}".format(m)
             y = "T{}".format(l)
-            ser.write(w,o,c,v,u,h,y,"\r".encode())
+            d = w+o+c+v+u+h+y+str("\r")
+            ser.write(d.encode())
             sleep(l/1000)
 except KeyboardInterrupt:
     ser.close()
