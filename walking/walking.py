@@ -4,23 +4,28 @@ from time import sleep
 
 UART.setup("UART1")
 
+
 def tripodWalking(forward):
-    if forward==True:
-        print('a')
-    elif forward==False:
-        print('d')
+    if forward == True:
+        print("a")
+    elif forward == False:
+        print("d")
     else:
-        print('k')
-    
+        print("k")
+
+
 def stopping():
-    print('r')
+    print("r")
+
 
 def send():
-    print('d')
+    print("d")
+
 
 def setup():
-    print('l')
- 
+    print("l")
+
+
 # ser = serial.Serial(port = "/dev/ttyO1", baudrate=9600)
 # ser.close()
 # ser.open()
