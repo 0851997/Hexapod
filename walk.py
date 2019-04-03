@@ -19,7 +19,7 @@ if ser.isOpen():
         ser.write("#26P1166#25P1333#24P1300#13P1578#0P1922#1P1666#14P1666#15P1833#2P1833T1000\r".encode())
         sleep(1)
         #forward A
-        ser.write("#29P1922#24P1500#16P1078#0P1722#8P1300#13P1278T1000\r".encode())
+        ser.write("#29P1922#24P1500#16P1478#0P1722#8P1300#13P1278T1000\r".encode())
         sleep(1)
         #up other side A port 8,16,29 gate 2
         ser.write("#30P944#17P944#18P1056#31P1056#29P1422#16P1078#9P2056#10P1944#8P1800T1000\r".encode())
