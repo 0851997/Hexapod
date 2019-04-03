@@ -16,23 +16,23 @@ def tripodWalking(forward, time, uart, portl, rate):
         if forward == True:
             while(True):
                 #up one side A port 0,13,24 gate 1
-                upRight="#25P944#26P1056#24P1300#14P2056#1P2056#15P1944#2P1944#13P1578#0P1922{}\r".format(time)
+                upRight="#25P944#26P1056#24P1300#14P2056#1P2056#15P1944#2P1944#13P1578#0P1922T{}\r".format(time)
                 ser.write(upRight.encode())
                 sleep(slp)
                 #down one side A
-                downRight="#26P1166#25P1333#24P1300#13P1578#0P1922#1P1666#14P1666#15P1833#2P1833{}\r".format(time)
+                downRight="#26P1166#25P1333#24P1300#13P1578#0P1922#1P1666#14P1666#15P1833#2P1833T{}\r".format(time)
                 ser.write(downRight.encode())
                 sleep(slp)
                 #forward A
-                moveRight="#29P1922#24P1500#16P1478#0P1722#8P1300#13P1278{}\r".format(time)
+                moveRight="#29P1922#24P1500#16P1478#0P1722#8P1300#13P1278T{}\r".format(time)
                 ser.write(moveRight.encode())
                 sleep(slp)
                 #up other side A port 8,16,29 gate 2
-                upLeft="#30P944#17P944#18P1056#31P1056#29P1422#16P1078#9P2056#10P1944#8P1800{}\r".format(time)
+                upLeft="#30P944#17P944#18P1056#31P1056#29P1422#16P1078#9P2056#10P1944#8P1800T{}\r".format(time)
                 ser.write(upLeft.encode())
                 sleep(slp)
                 #down other side A
-                downLeft="#31P1166#18P1166#30P1333#17P1333#29P1422#16P1078#8P1800#9P1666#10P1833{}\r".format(time)
+                downLeft="#31P1166#18P1166#30P1333#17P1333#29P1422#16P1078#8P1800#9P1666#10P1833T{}\r".format(time)
                 ser.write(downLeft.encode())
                 sleep(slp)
                 #forward A
