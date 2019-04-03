@@ -1,3 +1,3 @@
 import walking.tripodgate as mx
 
-mx.tripodWalking(50,"UART1","/dev/ttyO1",9600)
+mx.tripodWalking(100,"UART1","/dev/ttyO1",9600)
