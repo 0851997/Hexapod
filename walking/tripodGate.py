@@ -2,7 +2,7 @@ import Adafruit_BBIO.UART as UART
 import serial
 from time import sleep
 
-def tripodWalking(forward, time, uart, portl, rate):
+def tripodWalking(time, uart, portl, rate):
     UART.setup(uart)
     ser = serial.Serial(port = portl, baudrate=rate)
     ser.close()
@@ -13,7 +13,6 @@ def tripodWalking(forward, time, uart, portl, rate):
         ser.write(stand.encode())
         sleep(slp)
         i = 0
-        if forward == True:
             while(True):
                 #up one side A port 0,13,24 gate 1
                 upRight="#25P944#26P1056#24P1300#14P2056#1P2056#15P1944#2P1944#13P1578#0P1922T{}\r".format(time)
@@ -44,24 +43,22 @@ def tripodWalking(forward, time, uart, portl, rate):
                     ser.write(stand.encode())
                     sleep(slp)
                     i=0
-        elif forward == False:
-            print("d")
-        else:
-            print("k")
     ser.close()
 
+def reverse():
+    print("q")
 
-def stopping():
+def turnRight():
     print("r")
 
+def turnLeft():
+    print("k")
 
-def send():
-    print("d")
+def sideRight():
+    print("s")
 
-
-def setup():
-    print("l")
-
+def sideLeft():
+    print("v")
 
 # ser = serial.Serial(port = "/dev/ttyO1", baudrate=9600)
 # ser.close()
