@@ -13,11 +13,13 @@ if ser.isOpen():
     sleep(0.2)
     i = 0
     while(True):
+        #B V=14,1,25  H=13,0,24 Right Front Leg, Right Rear Leg, Left Center Leg
+        #A V=30,17,9  H=29,16,8 Left Front Leg, Left Rear Leg, Right Center Leg
         #lynx 0
         ser.write("#29P1722#8P1500#16P1278#14P2056#1P2056#25P944#13P1278#0P1722#24P1500T50\r".encode())
         sleep(0.5)
         #lynx 1
-        ser.write("#29P1922#8P1300#16P1478#14P1861#1P1861#25P1139#13P1578#0P1922#24P1300T50\r".encode())
+        ser.write("#29P1922#8P1700#16P1478#14P1861#1P1861#25P1139#13P1078#0P1522#24P1300T50\r".encode())
         sleep(0.5)
         #lynx 2
         ser.write("#14P1666#1P1666#25P1333T50\r".encode())
@@ -29,7 +31,7 @@ if ser.isOpen():
         ser.write("#30P944#9P2056#17P944#29P1722#8P1500#16P1278#13P1278#0P1722#24P1500T50\r".encode())
         sleep(0.5)
         #lynx 5
-        ser.write("#30P1139#9P1861#17P1139#29P1522#8P1700#16P1078#13P1478#0P1922#24P1700T50\r".encode())
+        ser.write("#30P1139#9P1861#17P1139#29P1522#8P1300#16P1078#13P1478#0P1922#24P1700T50\r".encode())
         sleep(0.5)
         #lynx 6
         ser.write("#30P1333#9P1666#17P1333T50\r".encode())
@@ -37,8 +39,6 @@ if ser.isOpen():
         #lynx 7
         ser.write("#14P1861#1P1861#25P1139T50\r".encode())
         sleep(0.5)
-        #B V=14,1,25  H=13,0,24
-        #A V=30,9,17  H=29,8,16
         '''#up one side A port 0,13,24 gate B
         ser.write("#25P944#24P1300#14P2056#1P2056#13P1578#0P1922T100\r".encode())
         sleep(0.5)
