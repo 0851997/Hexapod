@@ -8,41 +8,36 @@ def tripodWalking(time, uart, portl, rate):
     ser.close()
     ser.open()
     if ser.isOpen():
-        slp=time/1000
-        stand="#31P1166#26P1166#18P1166#30P1333#25P1333#17P1333#29P1722#24P1500#16P1278#13P1278#8P1500#0P1722#1P1666#9P1666#14P1666#15P1833#10P1833#2P1833T{}\r".format(time)
-        ser.write(stand.encode())
-        sleep(slp)
-        i = 0
+        ser.write("#31P1055#26P1055#18P1055#30P1277#25P1277#17P1277#29P1722#24P1500#16P1278#13P1278#8P1500#0P1722#1P1722#9P1722#14P1722#2P1944#10P1944#15P1944T200\r".encode())
+        sleep(0.5)
         while(True):
-            #up one side A port 0,13,24 gate 1
-            upRight="#25P944#26P1056#24P1300#14P2056#1P2056#15P1944#2P1944#13P1578#0P1922T{}\r".format(time)
-            ser.write(upRight.encode())
-            sleep(slp)
-            #down one side A
-            downRight="#26P1166#25P1333#24P1300#13P1578#0P1922#1P1666#14P1666#15P1833#2P1833T{}\r".format(time)
-            ser.write(downRight.encode())
-            sleep(slp)
-            #forward A
-            moveRight="#29P1922#24P1500#16P1478#0P1722#8P1300#13P1278T{}\r".format(time)
-            ser.write(moveRight.encode())
-            sleep(slp)
-            #up other side A port 8,16,29 gate 2
-            upLeft="#30P944#17P944#18P1056#31P1056#29P1422#16P1078#9P2056#10P1944#8P1800T{}\r".format(time)
-            ser.write(upLeft.encode())
-            sleep(slp)
-            #down other side A
-            downLeft="#31P1166#18P1166#30P1333#17P1333#29P1422#16P1078#8P1800#9P1666#10P1833T{}\r".format(time)
-            ser.write(downLeft.encode())
-            sleep(slp)
-            #forward A
-            moveLeft="#29P1722#24P1700#16P1278#13P1078#8P1500#0P1522T{}\r".format(time)
-            ser.write(moveLeft.encode())
-            sleep(slp)
-            i=i+1
-            if i == 3:
-                ser.write(stand.encode())
-                sleep(slp)
-                i=0
+            #B Vertical=14,1,25  Horizontal=13,0,24 Right Front Leg, Right Rear Leg, Left Center Leg
+            #A Vertical=30,17,9  Horizontal=29,16,8 Left Front Leg, Left Rear Leg, Right Center Leg
+            #see lynxmotion ssc-32U servo controller board guide page 28
+            #lynx 0
+            ser.write("#29P1722#8P1500#16P1278#14P2056#1P2056#25P944#13P1278#0P1722#24P1500T50\r".encode())
+            sleep(0.05)
+            #lynx 1
+            ser.write("#29P1922#8P1300#16P1478#14P1861#1P1861#25P1139#13P1478#0P1922#24P1300T50\r".encode())
+            sleep(0.05)
+            #lynx 2
+            ser.write("#14P1722#1P1722#25P1277T50\r".encode())
+            sleep(time)
+            #lynx 3
+            ser.write("#30P1139#9P1861#17P1139T50\r".encode())
+            sleep(0.05)
+            #lynx 4
+            ser.write("#30P944#9P2056#17P944#29P1722#8P1500#16P1278#13P1278#0P1722#24P1500T50\r".encode())
+            sleep(0.05)
+            #lynx 5
+            ser.write("#30P1139#9P1861#17P1139#29P1522#8P1700#16P1078#13P1078#0P1522#24P1700T50\r".encode())
+            sleep(0.05)
+            #lynx 6
+            ser.write("#30P1277#9P1722#17P1277T50\r".encode())
+            sleep(time)
+            #lynx 7
+            ser.write("#14P1861#1P1861#25P1139T50\r".encode())
+            sleep(0.05)
     ser.close()
 
 def reverse():
@@ -60,14 +55,3 @@ def sideRight():
 def sideLeft():
     print("v")
 
-# ser = serial.Serial(port = "/dev/ttyO1", baudrate=9600)
-# ser.close()
-# ser.open()
-# if ser.isOpen():
-#     while(True):
-#         print ("Serial is open!")
-#         ser.write("#0 P500\r".encode())
-#         sleep(1)
-#         ser.write("#0 P2500\r".encode())
-#         sleep(1)
-# ser.close()
