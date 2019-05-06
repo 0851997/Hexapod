@@ -17,25 +17,25 @@ if ser.isOpen():
         #lynx 0
         ser.write("#29P1722#8P1500#16P1278#14P2056#1P2056#25P944#13P1278#0P1722#24P1500T50\r".encode())
         sleep(0.05)
-        #lynx 1
-        ser.write("#29P1922#8P1700#16P1478#14P1861#1P1861#25P1139#13P1078#0P1522#24P1300T50\r".encode())
+        #lynxmotion guide 1 in README
+        ser.write("#29P1522#8P1300#16P1078#14P1861#1P1861#25P1139#13P1478#0P1922#24P1700T50\r".encode())
         sleep(0.05)
-        #lynx 2
+        #lynxmotion guide 2 in README
         ser.write("#14P1722#1P1722#25P1277T50\r".encode())
         sleep(0.05)
-        #lynx 3
+        #lynxmotion guide 3 in README
         ser.write("#30P1139#9P1861#17P1139T50\r".encode())
         sleep(0.05)
-        #lynx 4
+        #lynxmotion guide 4 in README
         ser.write("#30P944#9P2056#17P944#29P1722#8P1500#16P1278#13P1278#0P1722#24P1500T50\r".encode())
         sleep(0.05)
-        #lynx 5
-        ser.write("#30P1139#9P1861#17P1139#29P1522#8P1300#16P1078#13P1478#0P1922#24P1700T50\r".encode())
+        #lynxmotion guide 5 in README
+        ser.write("#30P1139#9P1861#17P1139#29P1922#8P1700#16P1478#13P1078#0P1522#24P1300T50\r".encode())
         sleep(0.05)
-        #lynx 6
+        #lynxmotion guide 6 in README
         ser.write("#30P1277#9P1722#17P1277T50\r".encode())
         sleep(0.05)
-        #lynx 7
+        #lynxmotion guide 7 in README
         ser.write("#14P1861#1P1861#25P1139T50\r".encode())
         sleep(0.05)
 
