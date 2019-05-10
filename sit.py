@@ -13,9 +13,9 @@ if ser.isOpen():
     sleep(0.5)
     #B V=14,1,25  H=13,0,24 Right Front Leg, Right Rear Leg, Left Center Leg
     #A V=30,17,9  H=29,16,8 Left Front Leg, Left Rear Leg, Right Center Leg
-    ser.write("#30P1139#9P1861#17P1139#14P1861#1P1861#25P1139T50\r".encode())
-    sleep(0.05)
-    ser.write("#14P2056#1P2056#25P944#30P944#9P2056#17P944T50\r".encode())
-    sleep(0.05)
+    ser.write("#30P1139#9P1861#17P1139#14P1861#1P1861#25P1139T500\r".encode())
+    sleep(0.5)
+    ser.write("#14P2056#1P2056#25P944#30P944#9P2056#17P944T500\r".encode())
+    sleep(0.5)
 
 ser.close()
