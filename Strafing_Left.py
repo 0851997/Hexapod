@@ -2,12 +2,26 @@ import Adafruit_BBIO.UART as UART
 import serial
 from time import sleep
 
-#variables seconds, port name, port, baubrate
-def tripodWalking(time, uart, portl, rate):
+serial=null
+time=0.05
+
+def setupSerialComm():
+    #variables seconds, port name, port, baubrate
     UART.setup(uart)
     ser = serial.Serial(port = portl, baudrate=rate)
     ser.close()
     ser.open()
+    setSerial(ser)
+    return ser
+
+def getSerial():
+    serial
+
+def setSerial(ser):
+    serial=ser
+
+def tripodWalking():
+
     if ser.isOpen():
         #stable stance
         ser.write("#31P1055#26P1055#18P1055#30P1277#25P1277#17P1277#29P1722#24P1500#16P1278#13P1278#8P1500#0P1722#1P1722#9P1722#14P1722#2P1944#10P1944#15P1944T200\r".encode())
@@ -53,6 +67,24 @@ def turnLeft():
 def sideRight():
     print("s")
 
-def sideLeft():
+def strafingLeft():
     print("v")
+    #stable stance
+    ser.write("#31P1055#26P1055#18P1055#30P1277#25P1277#17P1277#29P1722#24P1500#16P1278#13P1278#8P1500#0P1722#1P1722#9P1722#14P1722#2P1944#10P1944#15P1944T200\r".encode())
+    sleep(0.5)
+    while(True): #port 16 mogelijk fout gevoelig
+        ser.write("#0P1722#8P1500#13P1722#16P1277#24P1500#29P1722T50\r".encode())
+        sleep(time)
+        ser.write("#0P1922#8P1500#13P1522#16P1477#24P1500#29P1522T50\r".encode())
+        sleep(time)
+        ser.write("#0P1922#8P1500#13P1522#16P1477#24P1500#29P1522T50\r".encode())
+        sleep(time)
+        ser.write("#0P1922#8P1500#13P1522#16P1477#24P1500#29P1522T50\r".encode())
+        sleep(time)
+        ser.write("#0P1722#8P1500#13P1722#16P1277#24P1500#29P1722T50\r".encode())
+        sleep(time)
+        ser.write("#0P1722#8P1500#13P1522#16P1277#24P1500#29P1522T50\r".encode())
+        sleep(time)
+
+
 
