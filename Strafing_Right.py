@@ -21,7 +21,7 @@ if ser.isOpen():
         ser.write("#31P855#30P1277#18P855#17P1277 #9P1522#10P1944 T500\r".encode())
         sleep(0.5)
         #lynxmotion guide 2 in README
-        ser.write("#31P1055#30P1477#26P1255#25P1277#18P1055#17P1477 #14P1722#15P1744#9P1722#10P2144#1P1722#2P1744 T500\r".encode())
+        ser.write("#31P1055#30P1677#26P1255#25P1277#18P1055#17P1677 #14P1922#15P1744#9P1722#10P2144#1P1922#2P1744 T500\r".encode())
         sleep(0.5)
         #lynxmotion guide 3 in README
         ser.write("#26P855#25P1277 #14P1522#15P1944#1P1522#2P1944 T500\r".encode())
