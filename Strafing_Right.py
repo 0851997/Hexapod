@@ -14,28 +14,45 @@ if ser.isOpen():
     while(True):
         #B Vertical Ports=14,1,25  Horizontal Ports=13,0,24  Corresponding legs: Right Front Leg, Right Rear Leg, Left Center Leg
         #A Vertical Ports=30,17,9  Horizontal Ports=29,16,8  Corresponding legs: Left Front Leg, Left Rear Leg, Right Center Leg
-        #B up A idle
-        #A duw B intrekken
+        
+        # A up B idle
+        ser.write("#26P1255#25P1277 #14P1722#15P1744#1P1722#2P1744 T500\r".encode())
+        sleep(0.5)
+        # A duw B intrekken
+        ser.write("#31P1055#30P1477#18P1055#17P1477 #9P1522#10P2144 T500\r".encode())
+        sleep(0.5)
+        # A down B idle
+        ser.write("#26P855#25P1477 #14P1522#15P1944#1P1522#2P1944 T500\r".encode())
+        sleep(0.5)
+        # A idle B omhoog
+        ser.write("#31P1255#30P1277#18P1255#17P1277 #9P1722#10P1744 T500\r".encode())
+        sleep(0.5)
+        # A duw B gaat benen ver zetten
+        ser.write("#26P1055#25P1477 #14P1522#15P2144#1P1522#2P2144 T500\r".encode())
+        sleep(0.5)
+        ser.write("#31P855#30P1477#18P855#17P1477 #9P1522#10P2144 T500\r".encode())
+        sleep(0.5)
+        # A idle B intrekken
+        # A idle B down
+        '''
         #State 0: gait B gaat omhoog en gait A duwt
         ser.write("#31P1255#30P1277#26P1055#25P1477#18P1255#17P1277 #14P12#15P2144#9P1722#10P1744#1P1722#2P2144 T500\r".encode())
         sleep(0.5)
         #State 1: gait B gaat intrekken en gait A doet niks
         ser.write("#31P855#30P1277#18P855#17P1277 #9P1522#10P1944 T500\r".encode())
         sleep(0.5)
-        #gait B down A idle
-        #gait B idle A omhoog
-        #gait B duw A gaat benen ver zetten
+        
         #State 2: gait B gaat duwen en gait A omhoog
         ser.write("#31P1055#30P1677#26P1255#25P1177#18P1055#17P1677 #14P1922#15P1744#9P2122#10P2144#1P1922#2P1744 T500\r".encode())
         sleep(0.5)
-        #B idle A intrekken
+       
         #Sate 3: gait B doet niks en gait A gaat benen ver zetten
         ser.write("#26P855#25P1277 #14P1522#15P1944#1P1522#2P1944 T500\r".encode())
         sleep(0.5)
-        #B idle A down
+        
         #State 4: gait B omhoog en gait A gaat intrekken
         ser.write("#31P1255#30P1277#26P1055#25P1477#18P1255#17P1277 #14P1722#15P2144#9P1722#10P1744#1P1722#2P2144 T500\r".encode())
-        sleep(0.5)
+        sleep(0.5)'''
 ser.close()
 
 def reverse():
