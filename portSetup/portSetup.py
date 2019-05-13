@@ -5,5 +5,5 @@ class Ports:
         self.port = portl
         self.baudrate = rate
 
-    def getPort(self):
+    def getPort():
         return Ports()
