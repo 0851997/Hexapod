@@ -7,6 +7,7 @@ from time import sleep
 #def tripodWalking(time, uart, portl, rate):
 #    UART.setup(uart)
 #    ser = serial.Serial(port = portl, baudrate=rate)
+def stableStance():
     ser = ms.Ports()
     if ser.isOpen():
         #stable stance
