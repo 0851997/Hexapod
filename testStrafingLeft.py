@@ -24,5 +24,16 @@ if ser.isOpen():
         sleep(time)
         ser.write("#29P1522 #26P1055 #16P1478 #13P1078 #10P1944 #0P1922 T200\r".encode())
         sleep(time)
-        
+        ser.write("#14P1522 #1P1522 T200\r".encode())
+        sleep(time)
+        ser.write("#25P1177 #9P1822 T200\r".encode()) #Center legs high possition
+        sleep(time)
+        ser.write("26P855 #10P2144 T200\r".encode()) #Center legs 
+        sleep(time)
+        ser.write("#25P1477 #9P1522 T200\r".encode())
+        sleep(time)
+        ser.write("#30P1177 #17P1177 T200\r".encode())
+        sleep(time)
+        ser.write("#29P1722 #26P1055 #16P1278 #13P1278 #10P1944 #0P1722 T200\r".encode())
+        sleep(time)
 ser.close()
