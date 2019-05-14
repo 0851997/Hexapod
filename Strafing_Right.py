@@ -46,10 +46,10 @@ if ser.isOpen():
         ser.write("#31P1255#30P1277#18P1255#17P1277 #9P1722#10P1744 T500\r".encode())
         sleep(0.5)
         # State 4: gait A trek robot naar rechts
-        ser.write("#26P1055#25P1477 #14P1722#15P2144#1P1722#2P2144 T500\r".encode())
+        ser.write("#26P1055#25P1477 #14P1722#15P2044#1P1722#2P2044 T500\r".encode())
         sleep(0.5)
         # State 5: gait B zet poten bij een stabiele positie
-        ser.write("#31P855#30P1277#18P855#17P1277 #9P1522#10P2144 T500\r".encode())
+        ser.write("#31P955#30P1277#18P955#17P1277 #9P1522#10P2144 T500\r".encode())
         sleep(0.5)
 ser.close()
 
