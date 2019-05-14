@@ -19,7 +19,7 @@ if ser.isOpen():
         ser.write("#26P1255#25P1277 #14P1722#15P1744#1P1722#2P1744 T500\r".encode())
         sleep(0.5)
         # A duw B intrekken
-        ser.write("#31P1055#30P1477#18P1055#17P1477 #9P1422#10P1944 T500\r".encode())
+        ser.write("#31P1055#30P1477#18P1055#17P1477 #9P1722#10P2144 T500\r".encode())
         sleep(0.5)
         # A down B idle
         ser.write("#26P855#25P1477 #14P1522#15P1944#1P1522#2P1944 T500\r".encode())
