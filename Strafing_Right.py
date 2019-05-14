@@ -16,14 +16,14 @@ if ser.isOpen():
     # Gait A poten gaat omhoog, draait schouder loodrecht met het lichaam en dan poten weer omlaag
     ser.write("#26P1255#25P1277 #14P1722#15P1744#1P1722#2P1744 T500\r".encode())
     sleep(0.5)
-    ser.write("#24P1500 #13P900#0P2100 T500\r".encode())
+    ser.write("#24P1500 #13P1050#0P2050 T500\r".encode())
     sleep(0.5)
     ser.write("#26P1055#25P1277 #14P1722#15P1944#1P1722#2P1944 T500\r".encode())
     sleep(0.5)
     # Gait B poten gaat omhoog, draait schouder loodrecht met het lichaam en dan poten weer omlaag
     ser.write("#31P1255#30P1277#18P1255#17P1277 #9P1722#10P1744 T500\r".encode())
     sleep(0.5)
-    ser.write("#29P2100#16P900 #8P1500 T500\r".encode())
+    ser.write("#29P2050#16P950 #8P1500 T500\r".encode())
     sleep(0.5)
     ser.write("#31P1055#30P1277#18P1055#17P1277 #9P1722#10P1944 T500\r".encode())
     sleep(0.5)
