@@ -28,7 +28,7 @@ if ser.isOpen():
     ser.write("#31P1055#30P1277#18P1055#17P1277 #9P1722#10P1944 T500\r".encode())
     sleep(0.5)
 
-    while(True):
+    #while(True):
         # B Vertical Ports=14,1,25  Horizontal Ports=13,0,24  Corresponding legs: Right Front Leg, Right Rear Leg, Left Center Leg
         # A Vertical Ports=30,17,9  Horizontal Ports=29,16,8  Corresponding legs: Left Front Leg, Left Rear Leg, Right Center Leg
 
