@@ -4,6 +4,3 @@ class Ports:
         self.uart = uart
         self.port = portl
         self.baudrate = rate
-
-    def getPort():
-        return Ports()
