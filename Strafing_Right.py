@@ -49,7 +49,7 @@ if ser.isOpen():
         ser.write("#26P1055#25P1477 #14P1522#15P2144#1P1522#2P2144 T500\r".encode())
         sleep(0.50)
         # State 5: gait B zet poten bij een stabiele positie
-        ser.write("#31P855#30P1277#18P855#17P1277 #9P1522#10P1944 T500\r".encode())
+        ser.write("#31P1000#30P1477#18P1000#17P1477 #9P1522#10P1944 T500\r".encode())
         sleep(0.50)
 ser.close()
 
