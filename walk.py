@@ -23,7 +23,7 @@ if ser.isOpen():
         ser.write("#29P1922#8P1300#16P1478#14P1861#1P1861#25P1139#13P1478#0P1922#24P1300T50\r".encode())
         sleep(0.05)
         #lynx 2
-        ser.write("#14P1522#1P1022#25P1477T50\r".encode())
+        ser.write("#14P1522#1P1422#25P1477T50\r".encode())
         sleep(0.05)
         #lynx 3
         ser.write("#30P1139#9P1861#17P1139T50\r".encode())
@@ -35,7 +35,7 @@ if ser.isOpen():
         ser.write("#30P1139#9P1861#17P1139#29P1522#8P1700#16P1078#13P1078#0P1522#24P1700T50\r".encode())
         sleep(0.05)
         #lynx 6
-        ser.write("#30P1477#9P1522#17P2077T50\r".encode())
+        ser.write("#30P1477#9P1522#17P1677T50\r".encode())
         sleep(0.05)
         #lynx 7
         ser.write("#14P1861#1P1861#25P1139T50\r".encode())
