@@ -22,7 +22,7 @@ if ser.isOpen():
         sleep(time)
         ser.write("#14P1822 #1P1822 T500\r".encode()) #
         sleep(time)
-        ser.write("#29P1522 #26P1055 #16P1478 #13P1078 #10P1944 #0P1922 T500\r".encode())
+        ser.write("#29P1522 #26P1055 #16P1478 #13P1478 #10P1944 #0P1522 T500\r".encode())
         sleep(time)
         ser.write("#14P1522 #1P1522 T500\r".encode())
         sleep(time)
