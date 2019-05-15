@@ -9,7 +9,7 @@ ser.close()
 ser.open()
 if ser.isOpen():
     #stand
-    ser.write("#31P1055#26P1055#18P1055#30P1277#25P1277#17P1277#29P1722#24P1500#16P1278#13P1278#8P1500#0P1722#1P1722#9P1722#14P1722#2P1944#10P1944#15P1944T200\r".encode())
+    ser.write("#31P1055#26P1055#18P1055#30P1477#25P1477#17P1477#29P1722#24P1500#16P1278#13P1278#8P1500#0P1722#1P1522#9P1522#14P1522#2P1944#10P1944#15P1944T200\r".encode())
     sleep(2)
     i=0
     a =True
@@ -23,7 +23,7 @@ if ser.isOpen():
         ser.write("#29P1922#8P1300#16P1478#14P1861#1P1861#25P1139#13P1478#0P1922#24P1300T50\r".encode())
         sleep(0.05)
         #lynx 2
-        ser.write("#14P1722#1P1722#25P1277T50\r".encode())
+        ser.write("#14P1522#1P1522#25P1477T50\r".encode())
         sleep(0.05)
         #lynx 3
         ser.write("#30P1139#9P1861#17P1139T50\r".encode())
@@ -35,7 +35,7 @@ if ser.isOpen():
         ser.write("#30P1139#9P1861#17P1139#29P1522#8P1700#16P1078#13P1078#0P1522#24P1700T50\r".encode())
         sleep(0.05)
         #lynx 6
-        ser.write("#30P1277#9P1722#17P1277T50\r".encode())
+        ser.write("#30P1477#9P1522#17P1477T50\r".encode())
         sleep(0.05)
         #lynx 7
         ser.write("#14P1861#1P1861#25P1139T50\r".encode())
