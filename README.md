@@ -17,7 +17,9 @@
 Modules are made for the hexapod. Every module is a grouped up set of actions that describe a broader functionality.(e.g. portSetup, standing, walking)
 
 **Modules:**
-* Declare the port in 1 go from file [tripodgait.py](./walking/tripodgait.py) in module [walking](./walking). Forward, backward, turning and strafing walking movements can also be found in the same file.
+All modules are imported inside [main.py](./main.py). Here is where the main work is done.
+* Ports are initialized by importing [portSetup.py](./portSetup/portSetup.py) from [portSetup](./portSetup) and [tripodgait.py](./walking/tripodgait.py) from [walking](./walking) inside [main.py](./main.py) file.
+* Inside [main.py](./main.py) file the module [walking](./walking) can be used to call forward, backward, turning and strafing walking movement functions.
 * Sitting and standing can be found in [stableStance.py](./standing/stableStance.py) in module [standing](./standing). 
-* Modules can be set to execute from [main.py](./main.py). Keyboard interrupt interups all actions and lets the hexapod sit.
+* Modules can be set to execute from [main.py](./main.py). Keyboard interrupt is possible to stop all actions and let the hexapod sit.
 		 
