@@ -128,7 +128,7 @@ def turnLeft():
             sleep(0.05)
     ser.close()
 
-def sideRight():
+def strafeRight():
     UART.setup(port.uart)
     ser = serial.Serial(port = port.port, baudrate=port.baudrate)
     ser.close()
@@ -139,7 +139,7 @@ def sideRight():
         while(True):
             print("s")
 
-def sideLeft():
+def strafeLeft():
     UART.setup(port.uart)
     ser = serial.Serial(port = port.port, baudrate=port.baudrate)
     ser.close()
