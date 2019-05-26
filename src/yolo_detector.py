@@ -38,6 +38,8 @@ vs = VideoStream(src=0).start()
 time.sleep(1.0)
 (W, H) = (None, None)
 
+lastPosition = (0, 0)
+
 while True:
 	frame = vs.read()
 	if W is None or H is None:
@@ -77,27 +79,50 @@ while True:
 	idxs = cv2.dnn.NMSBoxes(boxes, confidences, args["confidence"],
 		args["threshold"])
 
-	if len(idxs) > 0: # If there is more than 0 persons detected draw it on the screen
+	if len(idxs) > 0:  # If there is more than 0 persons detected draw it on the screen
 		for i in idxs.flatten():
 			(x, y) = (boxes[i][0], boxes[i][1])
 			(w, h) = (boxes[i][2], boxes[i][3])
-
-			color = [int(c) for c in COLORS[classIDs[i]]]
-			cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
-			dimensionsRectangle = (((x+w)-x), ((y+h)-y))
-			rectCenter = (int((x+x+w)/2), int((y+y+h)/2))
-			distanceCenterToBorder = (dimensionsRectangle[0]/2, dimensionsRectangle[1]/2)
-			cv2.circle(frame, rectCenter, 5, (0, 0, 210), 5)
-			print("")
-			print("[INFO] Width and Height of the found person   			:", dimensionsRectangle) 		#<---- dimensionsRectangle is the width and height of the box around the person
-			print("[INFO] Center coordinates of the found person 			:", rectCenter) 				#<---- rectCenter is the center point of the found person
-			print("[INFO] From the center to the border of the rectangle 	:", distanceCenterToBorder) 	#<---- distanceCenterToBorder is the distance between the found person center and the drawn border around it
-			print("")
-			text = "{}: {:.4f}".format(LABELS[classIDs[i]],
-				confidences[i])
-			cv2.putText(frame, text, (x, y - 5),
-				cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
-
+			rectCenter = (int((x + x + w) / 2), int((y + y + h) / 2))
+			print("[INFO] Rectangle Center		:", rectCenter)
+			print("[INFO] Last know position	:", lastPosition)
+			if lastPosition[0] == 0 and lastPosition[1] == 0:  # The first person detected will be saved and followed.
+				color = [int(c) for c in COLORS[classIDs[i]]]
+				cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
+				dimensionsRectangle = (((x+w)-x), ((y+h)-y))
+				lastPosition = rectCenter
+				distanceCenterToBorder = (dimensionsRectangle[0]/2, dimensionsRectangle[1]/2)
+				cv2.circle(frame, rectCenter, 5, (0, 0, 210), 5)
+				print("")
+				print("[INFO] Width and Height of the found person   			:", dimensionsRectangle) 		#<---- dimensionsRectangle is the width and height of the box around the person
+				print("[INFO] Center coordinates of the found person 			:", rectCenter) 				#<---- rectCenter is the center point of the found person
+				print("[INFO] From the center to the border of the rectangle 	:", distanceCenterToBorder) 	#<---- distanceCenterToBorder is the distance between the found person center and the drawn border around it
+				print("")
+				# text = "{}: {:.4f}".format(LABELS[classIDs[i]],
+				# 	confidences[i])
+				cv2.putText(frame, "Tracked Person", (x, y - 5),
+					cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+			if (rectCenter[0] - 50) <= lastPosition[0] <= (rectCenter[0] + 50):   # Check if the x point is too far away from the last x point
+				if (rectCenter[1] - 50) <= lastPosition[1] <= (rectCenter[1] + 50):  # Check if the y point is too far away from the last y point
+					color = [int(c) for c in COLORS[classIDs[i]]]
+					cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
+					dimensionsRectangle = (((x + w) - x), ((y + h) - y))
+					lastPosition = rectCenter
+					distanceCenterToBorder = (dimensionsRectangle[0] / 2, dimensionsRectangle[1] / 2)
+					cv2.circle(frame, rectCenter, 5, (0, 0, 210), 5)
+					print("")
+					print("[INFO] Width and Height of the found person   			:", dimensionsRectangle)
+					print("[INFO] Center coordinates of the found person 			:", rectCenter)
+					print("[INFO] From the center to the border of the rectangle 	:", distanceCenterToBorder)
+					print("")
+					# text = "{}: {:.4f}".format(LABELS[classIDs[i]],
+					# 						   confidences[i])
+					cv2.putText(frame, "Tracked Person", (x, y - 5),
+								cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+			else:
+				print("")
+				print("The person has disappeared")
+				print("")
 	cv2.imshow("Little Heavy Mathametics", frame)
 	key = cv2.waitKey(1) & 0xFF
 
