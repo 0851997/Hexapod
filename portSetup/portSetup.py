@@ -10,18 +10,3 @@ class Configurations:
     def initializePorts(self):
         UART.setup(self.uartPort)
         self.serialConn = serial.Serial(port = self.port, baudrate = self.baudrate)
-    
-    def serialOpen(self):
-        self.serialConn.open()
-
-    def serialClose(self):
-        self.serialConn.close()
-
-    def serialWrite(self, payload):
-        self.serialConn.write(payload)
-        
-    def getSerialConn(self):
-        return self.serialConn
-    
-    def printTest(self):
-        print("hello, ik werk")
