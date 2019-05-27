@@ -17,6 +17,9 @@ class Configurations:
     def serialClose(self):
         self.serialConn.close()
 
+    def serialWrite(self, payload):
+        self.serialConn.write(payload)
+        
     def getSerialConn(self):
         return self.serialConn
     

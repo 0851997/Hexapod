@@ -19,7 +19,7 @@ config.serialOpen()
 try:
     config.printTest()
     if config.getSerialConn().isOpen():
-        standing.stableStance(config.getSerialConn)
+        standing.stableStance(config)#(config.getSerialConn)
         while(True):
             walking.strafeLeft(config.getSerialConn, 0.05)
     ser.close()
