@@ -17,6 +17,7 @@ config.serialClose()
 config.serialOpen()
 
 try:
+    config.printTest()
     if getSerialConn().isOpen():
         standing.stableStance()
         while(True):
