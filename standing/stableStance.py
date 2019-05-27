@@ -1,4 +1,5 @@
 from time import sleep
+import serial
 
 def stableStance(serialConn):
     #stable stance

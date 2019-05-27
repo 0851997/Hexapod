@@ -1,4 +1,5 @@
 from time import sleep
+import serial
 
 def tripodWalking(serialConn, time):
     #B Vertical Ports=14,1,25  Horizontal Ports=13,0,24  Corresponding legs: Right Front Leg, Right Rear Leg, Left Center Leg
