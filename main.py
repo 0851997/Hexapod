@@ -18,7 +18,7 @@ config.serialOpen()
 
 try:
     config.printTest()
-    if getSerialConn().isOpen():
+    if config.getSerialConn().isOpen():
         standing.stableStance()
         while(True):
             walking.strafeLeft(0.05)
