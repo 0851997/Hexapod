@@ -13,16 +13,15 @@ personYLocationBorder = 0;
 
 config = port.Configurations("UART1","/dev/ttyO1",9600)
 config.initializePorts()
-config.serialClose()
-config.serialOpen()
+config.serialConn.close()
+config.serialConn.open()
 
 try:
-    config.printTest()
-    if config.getSerialConn().isOpen():
+    if config.serialConn.isOpen():
         standing.stableStance(config)
         while(True):
             walking.strafeLeft(config, 0.05)
-    ser.close()
+    config.serialConn.close()
     
     #THIS IS THE INTERFACE FOR THE END OF THE PROJECT
     #         while(True):
@@ -43,4 +42,4 @@ try:
     #     walking.tripodWalking(0.05)
 
 except KeyboardInterrupt:
-    standing.sit()
+    standing.sit(config)
