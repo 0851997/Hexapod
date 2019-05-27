@@ -19,3 +19,6 @@ class Configurations:
 
     def getSerialConn(self):
         return self.serialConn
+    
+    def printTest(self):
+        print("hello, ik werk")
