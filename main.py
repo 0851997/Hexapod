@@ -19,9 +19,9 @@ config.serialOpen()
 try:
     config.printTest()
     if config.getSerialConn().isOpen():
-        standing.stableStance(config)#(config.getSerialConn)
+        standing.stableStance(config)
         while(True):
-            walking.strafeLeft(config.getSerialConn, 0.05)
+            walking.strafeLeft(config, 0.05)
     ser.close()
     
     #THIS IS THE INTERFACE FOR THE END OF THE PROJECT
