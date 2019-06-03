@@ -23,17 +23,23 @@ try:
         while(True):
             mode = input("Press a key for movement command: ")
             if mode == 'q':
-                walking.strafeLeft(config, 0.05)
+                for i in range(3):
+                    walking.strafeLeft(config, 0.05)
             elif mode == 'w':
-                walking.tripodWalking(config, 0.05)
+                for i in range(3):
+                    walking.tripodWalking(config, 0.05)
             elif mode == 'e':
-                walking.strafeRight(config, 0.05)
+                for i in range(3):
+                    walking.strafeRight(config, 0.05)
             elif mode == 'a':
-                walking.turnLeft(config)
+                for i in range(3):
+                    walking.turnLeft(config)
             elif mode == 's':
-                walking.reverse(config, 0.05)
+                for i in range(3):
+                    walking.reverse(config, 0.05)
             elif mode == 'd':
-                walking.turnRight(config)
+                for i in range(3):
+                    walking.turnRight(config)
             elif mode == 'z':
                 standing.stableStance(config)
             elif mode == 'x':
