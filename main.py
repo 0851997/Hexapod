@@ -1,7 +1,6 @@
 import portSetup.portSetup as port
 import walking.tripodgait as walking
 import standing.stableStance as standing
-import keyboard
 
 #turnLeftBoudaries = 0 - 85
 #strafeLeftBoundary = 85 - 224
@@ -21,17 +20,17 @@ try:
     if config.serialConn.isOpen():
         standing.stableStance(config)
         while(True):
-            if keyboard.is_pressed('w'):
+            input = input()
+            if input == 'w':
                 walking.tripodWalking(config, 0.05)
-            elif keyboard.is_pressed('s'):
+            elif input == 's':
                 walking.reverse(config)
-            elif keyboard.is_pressed('a'):
+            elif input == 'a':
                 walking.strafeLeft(config, 0.05)
-            elif keyboard.is_pressed('x'):
+            elif input == 'x':
                 standing.stableStance(config)
-            elif keyboard.is_pressed('q'):
+            elif input == 'q':
                 standing.sit(config)
-    config.serialConn.close()
     
     #THIS IS THE INTERFACE FOR THE END OF THE PROJECT
     #         while(True):
@@ -53,3 +52,4 @@ try:
 
 except KeyboardInterrupt:
     standing.sit(config)
+    config.serialConn.close()
