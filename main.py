@@ -22,28 +22,25 @@ try:
         standing.stableStance(config)
         while(True):
             mode = input("Press a key for movement command: ")
-            if mode == 'q':
-                for i in range(3):
+            for i in range(3):
+                if mode == 'q':
                     walking.strafeLeft(config, 0.05)
-            elif mode == 'w':
-                for i in range(3):
+                elif mode == 'w':
                     walking.tripodWalking(config, 0.05)
-            elif mode == 'e':
-                for i in range(3):
+                elif mode == 'e':
                     walking.strafeRight(config, 0.05)
-            elif mode == 'a':
-                for i in range(3):
+                elif mode == 'a':
                     walking.turnLeft(config)
-            elif mode == 's':
-                for i in range(3):
+                elif mode == 's':
                     walking.reverse(config, 0.05)
-            elif mode == 'd':
-                for i in range(3):
+                elif mode == 'd':
                     walking.turnRight(config)
-            elif mode == 'z':
-                standing.stableStance(config)
-            elif mode == 'x':
-                standing.sit(config)
+                elif mode == 'z':
+                    standing.stableStance(config)
+                    break
+                elif mode == 'x':
+                    standing.sit(config)
+                    break
                     
     #THIS IS THE INTERFACE FOR THE END OF THE PROJECT
     #         while(True):
