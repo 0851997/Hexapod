@@ -1,6 +1,7 @@
 import portSetup.portSetup as port
 import walking.tripodgait as walking
 import standing.stableStance as standing
+import string
 
 #turnLeftBoudaries = 0 - 85
 #strafeLeftBoundary = 85 - 224
@@ -20,7 +21,8 @@ try:
     if config.serialConn.isOpen():
         standing.stableStance(config)
         while(True):
-            input = input()
+            print("Press a key for command: ")
+            input = str(input())
             if input == 'w':
                 walking.tripodWalking(config, 0.05)
             elif input == 's':
