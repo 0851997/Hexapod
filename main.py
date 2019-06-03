@@ -21,17 +21,16 @@ try:
     if config.serialConn.isOpen():
         standing.stableStance(config)
         while(True):
-            print("Press a key for command: ")
-            input = str(input())
-            if input == 'w':
+            walkingMode = input("Press a key for movement command: ")
+            if walkingMode == 'w':
                 walking.tripodWalking(config, 0.05)
-            elif input == 's':
+            elif walkingMode == 's':
                 walking.reverse(config)
-            elif input == 'a':
+            elif walkingMode == 'a':
                 walking.strafeLeft(config, 0.05)
-            elif input == 'x':
+            elif walkingMode == 'x':
                 standing.stableStance(config)
-            elif input == 'q':
+            elif walkingMode == 'q':
                 standing.sit(config)
     
     #THIS IS THE INTERFACE FOR THE END OF THE PROJECT
