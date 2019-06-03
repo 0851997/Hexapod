@@ -25,7 +25,7 @@ try:
             if walkingMode == 'w':
                 walking.tripodWalking(config, 0.05)
             elif walkingMode == 's':
-                walking.reverse(config)
+                walking.reverse(config, 0.05)
             elif walkingMode == 'a':
                 walking.strafeLeft(config, 0.05)
             elif walkingMode == 'x':
