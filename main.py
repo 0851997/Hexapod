@@ -60,6 +60,6 @@ try:
     #     walking.ports(port1)
     #     walking.tripodWalking(0.05)
 
-except KeyboardInterrupt:
+except:
     standing.sit(config)
     config.serialConn.close()

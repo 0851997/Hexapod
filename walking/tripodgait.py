@@ -1,4 +1,5 @@
 from time import sleep
+import standing.stableStance as standing
 
 #B Vertical Ports=14,1,25  Horizontal Ports=13,0,24  Corresponding legs: Right Front Leg, Right Rear Leg, Left Center Leg
 #A Vertical Ports=30,17,9  Horizontal Ports=29,16,8  Corresponding legs: Left Front Leg, Left Rear Leg, Right Center Leg
@@ -85,8 +86,7 @@ def turnLeft(config):
     sleep(0.05)
 
 def strafeRight(config, time):
-    config.serialConn.write("#31P1055#26P1055#18P1055#30P1277#25P1277#17P1277#29P1722#24P1500#16P1278#13P1278#8P1500#0P1722#1P1722#9P1722#14P1722#2P1944#10P1944#15P1944T500\r".encode())
-    sleep(time)
+    standing.stableStance(config)
 #     config.serialConn.write("#30P1477#25P1477#17P1477 #14P1522#9P1522#1P1522 T50\r".encode())             #Higher standing stance
 #     sleep(time)
 #     config.serialConn.write("#25P1177 #9P1822 T50\r".encode())                                            #Center legs position high
