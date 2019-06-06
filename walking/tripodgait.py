@@ -120,7 +120,7 @@ def strafeRight(config, time):
     sleep(time)
     config.serialConn.write("#26P955 #10P1744 T50\r".encode())                                            #Center legs position high rightside "left center leg might not be right"
     sleep(time)
-    config.serialConn.write("#25P1477 #9P1522 T50\r".encode())                                            #Center legs position low rightside
+    config.serialConn.write("#25P1477 #9P1422 T50\r".encode())                                            #Center legs position low rightside
     sleep(time)
     config.serialConn.write("#30P1177 #17P1177 T50\r".encode())                                           #leftfront and leftrear legs position high (right side is pulling)
     sleep(time)
