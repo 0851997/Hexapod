@@ -29,6 +29,7 @@ try:
                     walking.tripodWalking(config, 0.05)
                 elif mode == 'e':
                     walking.strafeRight(config, 0.05)
+                    break
                 elif mode == 'a':
                     walking.turnLeft(config)
                 elif mode == 's':
