@@ -118,7 +118,7 @@ def strafeRight(config, time):
     sleep(time)
     config.serialConn.write("#25P1177 #9P1822 T50\r".encode())                                            #Center legs position high
     sleep(time)
-    config.serialConn.write("#26P1055 #10P1744 T50\r".encode())                                            #Center legs position high rightside "left center leg might not be right"
+    config.serialConn.write("#26P1055 #10P1744 T50\r".encode())                                           #Center legs position high rightside "left center leg might not be right"
     sleep(time)
     config.serialConn.write("#25P1477 #9P1422 T50\r".encode())                                            #Center legs position low rightside
     sleep(time)
@@ -130,11 +130,11 @@ def strafeRight(config, time):
     sleep(time)
     config.serialConn.write("#25P1177 #9P1822 T50\r".encode())                                            #Center legs high possition
     sleep(time)
-    config.serialConn.write("#26P1055 #10P1744 T50\r".encode())                                            #Center legs position high rightside 
+    config.serialConn.write("#26P1055 #10P1744 T50\r".encode())                                           #Center legs position high rightside 
     sleep(time)
     config.serialConn.write("#25P1477 #9P1522 T50\r".encode())                                            #Center legs position low rightside
     sleep(time)
-    config.serialConn.write("#30P1177 #17P1177 T50\r".encode())                                           #Rightfront and rightrear legs position high
+    config.serialConn.write("#14P1822 #1P1822 T50\r".encode())                                            #Rightfront and rightrear legs position high
     sleep(time)
     config.serialConn.write("#29P1722 #26P1255 #16P1278 #13P1278 #10P1944 #0P1722 T50\r".encode())        #Movement state2 right to left (left side is pushing)
     sleep(time)
