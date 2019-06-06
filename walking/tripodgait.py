@@ -114,7 +114,7 @@ def strafeLeft(config, time):
 
 def strafeRight(config, time):
     standing.stableStance(config)
-    config.serialConn.write("#30P1477#25P1477#17P1477 #14P1522#9P1522#1P1522 #26P1455 T50\r".encode())             #Higher standing stance
+    config.serialConn.write("#30P1477#25P1477#17P1477 #14P1522#9P1522#1P1522 #26P700 T50\r".encode())             #Higher standing stance
     sleep(time)
     config.serialConn.write("#25P1177 #9P1822 T50\r".encode())                                            #Center legs position high
     sleep(time)
