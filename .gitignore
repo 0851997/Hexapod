@@ -1,2 +1,7 @@
+#Trained Models
+/src/yolo-coco/*
+/.idea/*
+__pycache__
+
 .project
 .pydevproject
