@@ -1,7 +1,4 @@
-#Trained Models
-/src/yolo-coco/*
-/.idea/*
 __pycache__
-
+.vscode
 .project
 .pydevproject
