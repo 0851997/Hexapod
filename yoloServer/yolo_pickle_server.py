@@ -4,6 +4,7 @@ import pickle
 
 data_arr = None
 rectCenterWidth = None
+conn = None
 
 class Server(threading.Thread):
     def begin(self, ipAddr, port, listeners=None):
@@ -14,6 +15,7 @@ class Server(threading.Thread):
         self.s.listen(listeners)
 
     def run(self):
+        global conn
         conn, addr = s.accept()
         print ('Connected by', addr)
         while True:

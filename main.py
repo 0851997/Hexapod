@@ -27,43 +27,44 @@ mythread.start()
 try:
     if config.serialConn.isOpen():
         standing.stableStance(config)
-        while(True):
-            mode = input("Press a key for movement command: ")
-            print(server.data_arr)
-            for i in range(3):
-                if mode == 'q':
-                    walking.strafeLeft(config, 0.05)
-                elif mode == 'w':
-                    walking.tripodWalking(config, 0.05)
-                elif mode == 'e':
-                    walking.strafeRight(config, 0.05)
-                elif mode == 'a':
-                    walking.turnLeft(config)
-                elif mode == 's':
-                    walking.reverse(config, 0.05)
-                elif mode == 'd':
-                    walking.turnRight(config)
-                elif mode == 'z':
-                    standing.stableStance(config)
-                    break
-                elif mode == 'x':
-                    standing.sit(config)
-                    break
+        # while(True):
+        #     mode = input("Press a key for movement command: ")
+        #     print(server.data_arr)
+        #     for i in range(3):
+        #         if mode == 'q':
+        #             walking.strafeLeft(config, 0.05)
+        #         elif mode == 'w':
+        #             walking.tripodWalking(config, 0.05)
+        #         elif mode == 'e':
+        #             walking.strafeRight(config, 0.05)
+        #         elif mode == 'a':
+        #             walking.turnLeft(config)
+        #         elif mode == 's':
+        #             walking.reverse(config, 0.05)
+        #         elif mode == 'd':
+        #             walking.turnRight(config)
+        #         elif mode == 'z':
+        #             standing.stableStance(config)
+        #             break
+        #         elif mode == 'x':
+        #             standing.sit(config)
+        #             break
                     
-    #THIS IS THE INTERFACE FOR THE END OF THE PROJECT
-            while(True):
-                print(server.data_arr)
-                if server.rectCenterWidth < boundary[0]:
-                    walking.turnLeft()
-                elif server.rectCenterWidth < boundary[1]:
-                    walking.strafeLeft()
-                elif server.rectCenterWidth < boundary[2]:
-                    print ("random")#if personYLocationBorder 
-                elif server.rectCenterWidth < boundary[3]:
-                    walking.strafeRight()
-                elif server.rectCenterWidth < boundary[4]:
-                    walking.turnRight()
+        #THIS IS THE INTERFACE FOR THE END OF THE PROJECT
+        while(True):
+            print(server.data_arr)
+            if server.rectCenterWidth < boundary[0]:
+                walking.turnLeft()
+            elif server.rectCenterWidth < boundary[1]:
+                walking.strafeLeft()
+            elif server.rectCenterWidth < boundary[2]:
+                print ("random")#if personYLocationBorder 
+            elif server.rectCenterWidth < boundary[3]:
+                walking.strafeRight()
+            elif server.rectCenterWidth < boundary[4]:
+                walking.turnRight()
 
 except:
     standing.sit(config)
     config.serialConn.close()
+    server.conn.close()
