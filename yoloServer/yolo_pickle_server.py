@@ -1,24 +1,32 @@
 import socket
+import threading
 import pickle
 
-HOST = '192.168.43.189'
-PORT = 10000
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((HOST, PORT))
-s.listen(1)
-conn, addr = s.accept()
-print ('Connected by', addr)
-while True:
-    data = conn.recv(4096)
-    if(data!=b''):
-        data_arr = pickle.loads(data)
-        dimensionRectangle,rectCenter,distanceCenterToBorder=data_arr
-        print(data_arr)
+data_arr = None
 
-        dimensionRectangleWidth,dimensionRectangleHeight=dimensionRectangle
-        rectCenterWidth,rectCenterHeight=rectCenter
-        distancBorderWidth,distanceBorderHeight=distanceCenterToBorder
-        print(dimensionRectangle,rectCenter,distanceCenterToBorder)
-        values = dimensionRectangleWidth,dimensionRectangleHeight,rectCenterWidth,rectCenterHeight,distancBorderWidth,distanceBorderHeight
-        print(values)
-        conn.send(data)
+class Server(threading.Thread):
+    def begin(self, ipAddr, port, listeners=None):
+        self.HOST = ipAddr
+        self.PORT = port
+        self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.s.bind((self.HOST, self.PORT))
+        self.s.listen(listeners)
+
+    def run(self):
+        conn, addr = s.accept()
+        print ('Connected by', addr)
+        while True:
+            data = conn.recv(4096)
+            if(data!=b''):
+                global data_arr
+                data_arr = pickle.loads(data)
+                dimensionRectangle,rectCenter,distanceCenterToBorder=data_arr
+                print(data_arr)
+
+                dimensionRectangleWidth,dimensionRectangleHeight=dimensionRectangle
+                rectCenterWidth,rectCenterHeight=rectCenter
+                distancBorderWidth,distanceBorderHeight=distanceCenterToBorder
+                print(dimensionRectangle,rectCenter,distanceCenterToBorder)
+                values = dimensionRectangleWidth,dimensionRectangleHeight,rectCenterWidth,rectCenterHeight,distancBorderWidth,distanceBorderHeight
+                print(values)
+                conn.send(data)

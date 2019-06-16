@@ -2,7 +2,9 @@ import portSetup.portSetup as port
 import walking.tripodgait as walking
 import standing.stableStance as standing
 import yoloServer.yolo_pickle_server as server
+from time import sleep
 import string
+import threading
 
 #turnLeftBoudaries = 0 - 85
 #strafeLeftBoundary = 85 - 224
@@ -18,11 +20,16 @@ config.initializePorts()
 config.serialConn.close()
 config.serialConn.open()
 
+mythread = server.Server(name = "Thread-{}".format(1))
+mythread.begin('192.168.2.19',10000,listeners = 1)
+mythread.start()
+
 try:
     if config.serialConn.isOpen():
         standing.stableStance(config)
         while(True):
             mode = input("Press a key for movement command: ")
+            print(server.data_arr)
             for i in range(3):
                 if mode == 'q':
                     walking.strafeLeft(config, 0.05)
@@ -45,7 +52,7 @@ try:
                     
     #THIS IS THE INTERFACE FOR THE END OF THE PROJECT
             while(True):
-                print(server.values)
+                print(server.data_arr)
                 if server.rectCenterWidth < boundary[0]:
                     walking.turnLeft()
                 elif server.rectCenterWidth < boundary[1]:
