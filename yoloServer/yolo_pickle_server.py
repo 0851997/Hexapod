@@ -3,6 +3,7 @@ import threading
 import pickle
 
 data_arr = None
+rectCenterWidth = None
 
 class Server(threading.Thread):
     def begin(self, ipAddr, port, listeners=None):
@@ -23,6 +24,7 @@ class Server(threading.Thread):
                 dimensionRectangle,rectCenter,distanceCenterToBorder=data_arr
                 print(data_arr)
 
+                global rectCenterWidth
                 dimensionRectangleWidth,dimensionRectangleHeight=dimensionRectangle
                 rectCenterWidth,rectCenterHeight=rectCenter
                 distancBorderWidth,distanceBorderHeight=distanceCenterToBorder
