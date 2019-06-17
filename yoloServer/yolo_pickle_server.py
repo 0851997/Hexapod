@@ -5,8 +5,8 @@ import pickle
 class Server:
     def __init__(self, ipAddr, port, ready=None):
         self.HOST = ipAddr
-        self.PORT = port=300
-        self.rectCenterWidth
+        self.PORT = port
+        self.rectCenterWidth = 300
         self.ready = ready
         self.s = None
 
