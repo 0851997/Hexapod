@@ -31,4 +31,4 @@ class Server:
                 print(self.dimensionRectangle, self.rectCenter,self.distanceCenterToBorder)
                 self.values = self.dimensionRectangleWidth, self.dimensionRectangleHeight, self.rectCenterWidth, self.rectCenterHeight, self.distancBorderWidth, self.distanceBorderHeight
                 print(self.values)
-                self.conn.send(self.data)
+                #self.conn.send(self.data)
