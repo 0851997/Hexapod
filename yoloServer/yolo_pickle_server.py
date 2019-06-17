@@ -3,7 +3,7 @@ import threading
 import pickle
 
 data_arr = None
-rectCenterWidth = None
+rectCenterWidth = 300
 conn = None
 
 class Server(threading.Thread):
