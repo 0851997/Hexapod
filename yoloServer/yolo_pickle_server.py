@@ -7,7 +7,7 @@ rectCenterWidth = None
 conn = None
 
 class Server(threading.Thread):
-    def begin(self, ipAddr, port, listeners=None):
+    def begin(self, ipAddr, port, listeners=1):
         self.HOST = ipAddr
         self.PORT = port
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -16,7 +16,7 @@ class Server(threading.Thread):
 
     def run(self):
         global conn
-        conn, addr = s.accept()
+        conn, addr = self.s.accept()
         print ('Connected by', addr)
         while True:
             data = conn.recv(4096)
