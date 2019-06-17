@@ -71,4 +71,4 @@ try:
 except:
     standing.sit(config)
     config.serialConn.close()
-    connection.conn.close()
+    #connection.conn.close()

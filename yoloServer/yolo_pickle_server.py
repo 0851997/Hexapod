@@ -19,9 +19,9 @@ class Server:
     def run(self):
         print ('Connected by', self.addr)
         while True:
-            self.data = self.conn.recv(4096)
-            if(self.data!=b''):
-                self.data_arr = pickle.loads(self.data)
+            data = self.conn.recv(4096)
+            if(data!=b''):
+                self.data_arr = pickle.loads(data)
                 self.dimensionRectangle, self.rectCenter, self.distanceCenterToBorder= self.data_arr
                 print(self.data_arr)
 
@@ -31,4 +31,4 @@ class Server:
                 print(self.dimensionRectangle, self.rectCenter,self.distanceCenterToBorder)
                 self.values = self.dimensionRectangleWidth, self.dimensionRectangleHeight, self.rectCenterWidth, self.rectCenterHeight, self.distancBorderWidth, self.distanceBorderHeight
                 print(self.values)
-                #self.conn.send(self.data)
+                self.conn.send(data)
