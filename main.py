@@ -68,7 +68,7 @@ try:
             elif (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
                 walking.turnRight()
 
-except:
+except KeyboardInterrupt:
     standing.sit(config)
     config.serialConn.close()
-    #connection.conn.close()
+    connection.conn.close()
