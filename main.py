@@ -60,11 +60,11 @@ try:
             while (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 walking.turnLeft(config)
             while (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
-                walking.strafeLeft(config)
+                walking.strafeLeft(config,0.05)
             while (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
                 print ("random")#if personYLocationBorder 
             while (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
-                walking.strafeRight(config)
+                walking.strafeRight(config,0.05)
             while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
                 walking.turnRight(config)
 
