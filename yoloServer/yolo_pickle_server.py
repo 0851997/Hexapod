@@ -13,13 +13,13 @@ class Server(threading.Thread):
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.s.bind((self.HOST, self.PORT))
         self.s.listen(listeners)
+        global conn
+        conn, self.addr = self.s.accept()
 
     def run(self):
-        global conn
-        conn, addr = self.s.accept()
-        print ('Connected by', addr)
+        print ('Connected by', self.addr)
         while True:
-            data = conn.recv(4096)
+            data = self.conn.recv(4096)
             if(data!=b''):
                 global data_arr
                 data_arr = pickle.loads(data)
@@ -33,4 +33,4 @@ class Server(threading.Thread):
                 print(dimensionRectangle,rectCenter,distanceCenterToBorder)
                 values = dimensionRectangleWidth,dimensionRectangleHeight,rectCenterWidth,rectCenterHeight,distancBorderWidth,distanceBorderHeight
                 print(values)
-                conn.send(data)
+                self.conn.send(data)

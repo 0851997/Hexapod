@@ -22,6 +22,7 @@ config.serialConn.open()
 
 mythread = server.Server(name = "Thread-{}".format(1))
 mythread.begin('192.168.43.189',10000,listeners = 1)
+sleep(5)
 mythread.start()
 
 try:
