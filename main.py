@@ -56,17 +56,17 @@ try:
             #forwardBackwardBoundary = 224 - 416
             #strafeRightBoundary = 416 - 555
             #turnRightBoundary = 555 - 640
-            print(connection.data_arr)
+            #print(connection.data_arr)
             if (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
-                walking.turnLeft()
+                walking.turnLeft(config)
             elif (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
-                walking.strafeLeft()
+                walking.strafeLeft(config)
             elif (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
                 print ("random")#if personYLocationBorder 
             elif (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
-                walking.strafeRight()
+                walking.strafeRight(config)
             elif (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
-                walking.turnRight()
+                walking.turnRight(config)
 
 except KeyboardInterrupt:
     standing.sit(config)
