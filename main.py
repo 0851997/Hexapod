@@ -20,10 +20,13 @@ config.initializePorts()
 config.serialConn.close()
 config.serialConn.open()
 
-mythread = server.Server(name = "Thread-{}".format(1))
-mythread.begin('192.168.43.189',10000,listeners = 1)
-sleep(5)
+ready = threading.Event()
+connection = server.Server('192.168.43.189',10000,ready)
+mythread = threading.Thread(target=connection.connect)
 mythread.start()
+ready.wait()
+thread = threading.Thread(target=connection.start)
+thread.start()
 
 try:
     if config.serialConn.isOpen():
