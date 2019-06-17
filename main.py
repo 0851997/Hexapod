@@ -33,7 +33,7 @@ try:
         standing.stableStance(config)
         # while(True):
         #     mode = input("Press a key for movement command: ")
-        #     print(server.data_arr)
+        #     print(connection.data_arr)
         #     for i in range(3):
         #         if mode == 'q':
         #             walking.strafeLeft(config, 0.05)
@@ -56,19 +56,19 @@ try:
                     
         #THIS IS THE INTERFACE FOR THE END OF THE PROJECT
         while(True):
-            print(server.data_arr)
-            if server.rectCenterWidth < boundary[0]:
+            print(connection.data_arr)
+            if connection.rectCenterWidth < boundary[0]:
                 walking.turnLeft()
-            elif server.rectCenterWidth < boundary[1]:
+            elif connection.rectCenterWidth < boundary[1]:
                 walking.strafeLeft()
-            elif server.rectCenterWidth < boundary[2]:
+            elif connection.rectCenterWidth < boundary[2]:
                 print ("random")#if personYLocationBorder 
-            elif server.rectCenterWidth < boundary[3]:
+            elif connection.rectCenterWidth < boundary[3]:
                 walking.strafeRight()
-            elif server.rectCenterWidth < boundary[4]:
+            elif connection.rectCenterWidth < boundary[4]:
                 walking.turnRight()
 
 except:
     standing.sit(config)
     config.serialConn.close()
-    server.conn.close()
+    connection.conn.close()
