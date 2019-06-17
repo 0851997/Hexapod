@@ -22,8 +22,8 @@ class Server:
             data = self.conn.recv(4096)
             if(data!=b''):
                 self.data_arr = pickle.loads(data)
-                dimensionRectangle,rectCenter,distanceCenterToBorder=data_arr
-                print(data_arr)
+                dimensionRectangle,rectCenter,distanceCenterToBorder= self.data_arr
+                print(self.data_arr)
 
                 self.dimensionRectangleWidth, self.dimensionRectangleHeight=dimensionRectangle
                 self.rectCenterWidth, self.rectCenterHeight=rectCenter
