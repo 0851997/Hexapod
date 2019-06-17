@@ -6,11 +6,6 @@ from time import sleep
 import string
 import threading
 
-#turnLeftBoudaries = 0 - 85
-#strafeLeftBoundary = 85 - 224
-#forwardBackwardBoundary = 224 - 416
-#strafeRightBoundary = 416 - 555
-#turnRightBoundary = 555 - 640
 boundary = (85, 224, 416, 555, 640)
 centerLocationPoint = 0;
 personYLocationBorder = 0;
@@ -56,16 +51,21 @@ try:
                     
         #THIS IS THE INTERFACE FOR THE END OF THE PROJECT
         while(True):
+            #turnLeftBoudaries = 0 - 85
+            #strafeLeftBoundary = 85 - 224
+            #forwardBackwardBoundary = 224 - 416
+            #strafeRightBoundary = 416 - 555
+            #turnRightBoundary = 555 - 640
             print(connection.data_arr)
-            if connection.rectCenterWidth < boundary[0]:
+            if (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 walking.turnLeft()
-            elif connection.rectCenterWidth < boundary[1]:
+            elif (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 walking.strafeLeft()
-            elif connection.rectCenterWidth < boundary[2]:
+            elif (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 print ("random")#if personYLocationBorder 
-            elif connection.rectCenterWidth < boundary[3]:
+            elif (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 walking.strafeRight()
-            elif connection.rectCenterWidth < boundary[4]:
+            elif (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 walking.turnRight()
 
 except:
