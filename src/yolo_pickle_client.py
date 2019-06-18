@@ -1,5 +1,6 @@
 # USAGE COMMAND:
-# python yolo.py --yolo yolo-coco -IP 192.168.43.189 -p 10000
+# python yolo_pickle_client.py --yolo yolo-coco 
+# -IP 192.168.43.189 -p 10000
 
 import numpy as np
 import argparse
@@ -15,10 +16,10 @@ import pickle
 ap = argparse.ArgumentParser()
 ap.add_argument("-y", "--yolo", required=True,
 	help="base path to YOLO directory")
-ap.add_argument("-IP", "--ip_address", type=str, required=True,
-				help="Set the IP address of the BeagleBone")
-ap.add_argument("-p", "--port", type=int, required=True,
-				help="Set the port of the BeagleBone")
+# ap.add_argument("-IP", "--ip_address", type=str, required=True,
+# 				help="Set the IP address of the BeagleBone")
+# ap.add_argument("-p", "--port", type=int, required=True,
+# 				help="Set the port of the BeagleBone")
 ap.add_argument("-c", "--confidence", type=float, default=0.8, #0.5
 	help="minimum probability to filter weak detections")
 ap.add_argument("-t", "--threshold", type=float, default=0.3, #0.3
@@ -40,14 +41,14 @@ net = cv2.dnn.readNetFromDarknet(configPath, weightsPath)
 ln = net.getLayerNames()
 ln = [ln[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
-vs = VideoStream(src=0).start()
+vs = VideoStream(src=1).start()
 time.sleep(1.0)
 (W, H) = (None, None)
 
 lastPosition = (0, 0)
 
 IP = "192.168.43.189"
-PORT = 10000
+PORT = 9000
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((IP, PORT))
 
