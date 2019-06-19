@@ -60,28 +60,38 @@ try:
             #print(connection.data_arr)
             while (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 walking.turnLeft(config,0.5)
-                if connection.previous == connection.data_arr:
+                now =0
+                if connection.previous == connection.data_arr and now==1:
                     standing.stableStance(config)
+                now +=1
                     
             while (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
                 walking.strafeLeft(config,0.5)
-                if connection.previous == connection.data_arr:
+                now =0
+                if connection.previous == connection.data_arr and now==1:
                     standing.stableStance(config)
+                now +=1
 
             while (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
                 print ("random")#if personYLocationBorder
-                if connection.previous == connection.data_arr:
+                now =0
+                if connection.previous == connection.data_arr and now==1:
                     standing.stableStance(config)
+                now +=1
                     
             while (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
                 walking.strafeRight(config,0.5)
-                if connection.previous == connection.data_arr:
+                now =0
+                if connection.previous == connection.data_arr and now==1:
                     standing.stableStance(config)
+                now +=1
 
             while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 10055):
                 walking.turnRight(config,0.5)
-                if connection.previous == connection.data_arr:
+                now =0
+                if connection.previous == connection.data_arr and now==1:
                     standing.stableStance(config)
+                now +=1
 
 except KeyboardInterrupt:
     standing.sit(config)
