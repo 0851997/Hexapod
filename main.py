@@ -2,7 +2,7 @@ import portSetup.portSetup as port
 import walking.tripodgait as walking
 import standing.stableStance as standing
 import yoloServer.yolo_pickle_server as server
-from time import sleep
+import time
 import string
 import threading
 
@@ -59,14 +59,33 @@ try:
             #print(connection.data_arr)
             while (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 walking.turnLeft(config)
+                end=time.time()
+                if(end-connection.start > 5):
+                    standing.stableStance(config)
+
             while (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
                 walking.strafeLeft(config,0.05)
+                end=time.time()
+                if(end-connection.start > 5):
+                    standing.stableStance(config)
+
             while (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
-                print ("random")#if personYLocationBorder 
+                print ("random")#if personYLocationBorder
+                end=time.time()
+                if(end-connection.start > 5):
+                    standing.stableStance(config)
+                    
             while (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
                 walking.strafeRight(config,0.05)
+                end=time.time()
+                if(end-connection.start > 5):
+                    standing.stableStance(config)
+
             while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
                 walking.turnRight(config)
+                end=time.time()
+                if(end-connection.start > 5):
+                    standing.stableStance(config)
 
 except KeyboardInterrupt:
     standing.sit(config)
