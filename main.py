@@ -60,31 +60,31 @@ try:
             while (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 walking.turnLeft(config,0.5)
                 end=time.time()
-                if(end-connection.start > 5):
+                if(end-connection.start > 100):
                     standing.stableStance(config)
 
             while (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
                 walking.strafeLeft(config,0.5)
                 end=time.time()
-                if(end-connection.start > 5):
+                if(end-connection.start > 100):
                     standing.stableStance(config)
 
             while (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
                 print ("random")#if personYLocationBorder
                 end=time.time()
-                if(end-connection.start > 5):
+                if(end-connection.start > 100):
                     standing.stableStance(config)
                     
             while (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
                 walking.strafeRight(config,0.5)
                 end=time.time()
-                if(end-connection.start > 5):
+                if(end-connection.start > 100):
                     standing.stableStance(config)
 
-            while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
+            while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 10055):
                 walking.turnRight(config,0.5)
                 end=time.time()
-                if(end-connection.start > 5):
+                if(end-connection.start > 100):
                     standing.stableStance(config)
 
 except KeyboardInterrupt:
