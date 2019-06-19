@@ -63,6 +63,7 @@ try:
                 now =0
                 if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
+                    break
                 now +=1
                 connection.previous=connection.rectCenterWidth
                     
@@ -71,6 +72,7 @@ try:
                 now =0
                 if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
+                    break
                 now +=1
                 connection.previous=connection.rectCenterWidth
 
@@ -79,6 +81,7 @@ try:
                 now =0
                 if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
+                    break
                 now +=1
                 connection.previous=connection.rectCenterWidth
                     
@@ -87,6 +90,7 @@ try:
                 now =0
                 if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
+                    break
                 now +=1
                 connection.previous=connection.rectCenterWidth
 
@@ -95,8 +99,10 @@ try:
                 now =0
                 if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
+                    break
                 now +=1
                 connection.previous=connection.rectCenterWidth
+            time.sleep(2)
 
 except KeyboardInterrupt:
     standing.sit(config)
