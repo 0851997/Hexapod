@@ -23,9 +23,16 @@ ready.wait()
 thread = threading.Thread(target=connection.run)
 thread.start()
 
+start = None
+end = None
+
 try:
     if config.serialConn.isOpen():
         standing.stableStance(config)
+        global start
+        start = time.time()
+        global end
+        end = start+5
         # while(True):
         #     mode = input("Press a key for movement command: ")
         #     print(connection.data_arr)
@@ -59,32 +66,32 @@ try:
             #print(connection.data_arr)
             while (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 walking.turnLeft(config,0.5)
-                end=time.time()
-                if(end-connection.start > 100):
+                start=time.time()
+                if(end-start > 5):
                     standing.stableStance(config)
 
             while (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
                 walking.strafeLeft(config,0.5)
-                end=time.time()
-                if(end-connection.start > 100):
+                start=time.time()
+                if(end-start > 5):
                     standing.stableStance(config)
 
             while (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
                 print ("random")#if personYLocationBorder
-                end=time.time()
-                if(end-connection.start > 100):
+                start=time.time()
+                if(end-start > 5):
                     standing.stableStance(config)
                     
             while (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
                 walking.strafeRight(config,0.5)
-                end=time.time()
-                if(end-connection.start > 100):
+                start=time.time()
+                if(end-start > 5):
                     standing.stableStance(config)
 
             while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 10055):
                 walking.turnRight(config,0.5)
-                end=time.time()
-                if(end-connection.start > 100):
+                start=time.time()
+                if(end-start > 5):
                     standing.stableStance(config)
 
 except KeyboardInterrupt:
