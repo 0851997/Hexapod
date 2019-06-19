@@ -61,33 +61,34 @@ try:
             #strafeRightBoundary = 416 - 555
             #turnRightBoundary = 555 - 640
             #print(connection.data_arr)
+            start=time.time()
             while (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 walking.turnLeft(config,0.5)
-                start=time.time()
+                
                 if(end-start > 5):
                     standing.stableStance(config)
 
             while (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
                 walking.strafeLeft(config,0.5)
-                start=time.time()
+                
                 if(end-start > 5):
                     standing.stableStance(config)
 
             while (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
                 print ("random")#if personYLocationBorder
-                start=time.time()
+                
                 if(end-start > 5):
                     standing.stableStance(config)
                     
             while (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
                 walking.strafeRight(config,0.5)
-                start=time.time()
+                
                 if(end-start > 5):
                     standing.stableStance(config)
 
             while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 10055):
                 walking.turnRight(config,0.5)
-                start=time.time()
+                
                 if(end-start > 5):
                     standing.stableStance(config)
 
