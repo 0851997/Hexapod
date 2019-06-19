@@ -23,9 +23,6 @@ ready.wait()
 thread = threading.Thread(target=connection.run)
 thread.start()
 
-start = None
-end = None
-
 try:
     if config.serialConn.isOpen():
         standing.stableStance(config)
