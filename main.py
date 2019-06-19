@@ -59,34 +59,28 @@ try:
             #turnRightBoundary = 555 - 640
             #print(connection.data_arr)
             while (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
-                now = 0
                 walking.turnLeft(config,0.5)
-                if now == 5 or time.time() > timeout:
+                if connection.previous == connection.data_arr:
                     standing.stableStance(config)
-                    break
-                now -= 1
+                    
             while (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
                 walking.strafeLeft(config,0.5)
-                
-                if(end-start > 5):
+                if connection.previous == connection.data_arr:
                     standing.stableStance(config)
 
             while (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
                 print ("random")#if personYLocationBorder
-                
-                if(end-start > 5):
+                if connection.previous == connection.data_arr:
                     standing.stableStance(config)
                     
             while (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
                 walking.strafeRight(config,0.5)
-                
-                if(end-start > 5):
+                if connection.previous == connection.data_arr:
                     standing.stableStance(config)
 
             while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 10055):
                 walking.turnRight(config,0.5)
-                
-                if(end-start > 5):
+                if connection.previous == connection.data_arr:
                     standing.stableStance(config)
 
 except KeyboardInterrupt:

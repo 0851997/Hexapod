@@ -24,6 +24,7 @@ class Server:
             data = self.conn.recv(4096)
             if(data!=b''):
                 self.data_arr = pickle.loads(data)
+                self.previous=self.data_arr
                 self.dimensionRectangle, self.rectCenter, self.distanceCenterToBorder= self.data_arr
                 print(self.data_arr)
 
