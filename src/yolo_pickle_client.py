@@ -47,7 +47,7 @@ time.sleep(1.0)
 
 lastPosition = (0, 0)
 
-IP = "192.168.43.189"
+IP = "192.168.43.31"
 PORT = 9000
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((IP, PORT))
