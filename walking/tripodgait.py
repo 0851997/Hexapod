@@ -88,7 +88,7 @@ def turnLeft(config, time):
 def strafeLeft(config, time):
     standing.stableStance(config)
     config.serialConn.write("#30P1477#25P1477#17P1477 #14P1522#9P1522#1P1522 T50\r".encode())             #Higher standing stance
-    sleep(0.05)
+    sleep(time)
     config.serialConn.write("#25P1177 #9P1822 T50\r".encode())                                            #Center legs position high
     sleep(0.05)
     config.serialConn.write("#26P1255 #10P2144 T50\r".encode())                                           #Center legs position high leftside
@@ -98,9 +98,9 @@ def strafeLeft(config, time):
     config.serialConn.write("#14P1822 #1P1822 T50\r".encode())                                            #Rightfront and rightrear legs position high (left side is pulling)
     sleep(0.05)
     config.serialConn.write("#29P1522 #26P1055 #16P1478 #13P1478 #10P1944 #0P1522 T50\r".encode())        #Movement state left to right
-    sleep(time)
-    config.serialConn.write("#14P1522 #1P1522 T50\r".encode())                                            #Rightfront and rightrear legs position low
     sleep(0.05)
+    config.serialConn.write("#14P1522 #1P1522 T50\r".encode())                                            #Rightfront and rightrear legs position low
+    sleep(time)
     config.serialConn.write("#25P1177 #9P1822 T50\r".encode())                                            #Center legs high possition
     sleep(0.05)
     config.serialConn.write("#26P1255 #10P2144 T50\r".encode())                                           #Center legs position high leftside 
@@ -110,12 +110,12 @@ def strafeLeft(config, time):
     config.serialConn.write("#30P1177 #17P1177 T50\r".encode())                                           #Leftfront and leftrear legs position high
     sleep(0.05)
     config.serialConn.write("#29P1722 #26P1055 #16P1278 #13P1278 #10P1944 #0P1722 T50\r".encode())        #Movement state2 left to right (right side is pushing)
-    sleep(time)
+    sleep(0.05)
 
 def strafeRight(config, time):
     standing.stableStance(config)
     config.serialConn.write("#30P1477#25P1477#17P1477 #14P1522#9P1522#1P1522 #26P1255 #8P1600 T50\r".encode())             #Higher standing stance
-    sleep(0.05)
+    sleep(time)
     config.serialConn.write("#25P1177 #9P1822 T50\r".encode())                                            #Center legs position high
     sleep(0.05)
     config.serialConn.write("#26P1055 #10P1744 T50\r".encode())                                           #Center legs position high rightside "left center leg might not be right"
@@ -125,9 +125,9 @@ def strafeRight(config, time):
     config.serialConn.write("#30P1177 #17P1177 T50\r".encode())                                           #leftfront and leftrear legs position high (right side is pulling)
     sleep(0.05)
     config.serialConn.write("#29P1522 #26P1255 #16P1478 #13P1478 #10P1944 #0P1522 T50\r".encode())        #Movement state right to left
-    sleep(time)
-    config.serialConn.write("#30P1477 #17P1477 T50\r".encode())                                           #Leftfront and leftrear legs position low
     sleep(0.05)
+    config.serialConn.write("#30P1477 #17P1477 T50\r".encode())                                           #Leftfront and leftrear legs position low
+    sleep(time)
     config.serialConn.write("#25P1177 #9P1822 T50\r".encode())                                            #Center legs high possition
     sleep(0.05)
     config.serialConn.write("#26P1055 #10P1744 T50\r".encode())                                           #Center legs position high rightside 
@@ -137,5 +137,5 @@ def strafeRight(config, time):
     config.serialConn.write("#14P1822 #1P1822 T50\r".encode())                                            #Rightfront and rightrear legs position high
     sleep(0.05)
     config.serialConn.write("#29P1722 #26P1255 #16P1278 #13P1278 #10P1944 #0P1722 T50\r".encode())        #Movement state2 right to left (left side is pushing)
-    sleep(time)
+    sleep(0.05)
 
