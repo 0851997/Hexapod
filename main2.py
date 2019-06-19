@@ -15,13 +15,13 @@ config.initializePorts()
 config.serialConn.close()
 config.serialConn.open()
 
-ready = threading.Event()
-connection = server.Server('192.168.43.189',10000,ready)
-mythread = threading.Thread(target=connection.connect)
-mythread.start()
-ready.wait()
-thread = threading.Thread(target=connection.run)
-thread.start()
+# ready = threading.Event()
+# connection = server.Server('192.168.43.189',10000,ready)
+# mythread = threading.Thread(target=connection.connect)
+# mythread.start()
+# ready.wait()
+# thread = threading.Thread(target=connection.run)
+# thread.start()
 
 try:
     if config.serialConn.isOpen():
@@ -71,4 +71,4 @@ try:
 except KeyboardInterrupt:
     standing.sit(config)
     config.serialConn.close()
-    connection.conn.close()
+#     connection.conn.close()
