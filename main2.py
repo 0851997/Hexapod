@@ -36,11 +36,11 @@ try:
                 elif mode == 'e':
                     walking.strafeRight(config, 0.5)
                 elif mode == 'a':
-                    walking.turnLeft(config)
+                    walking.turnLeft(config, 0.5)
                 elif mode == 's':
                     walking.reverse(config, 0.5)
                 elif mode == 'd':
-                    walking.turnRight(config)
+                    walking.turnRight(config, 0.5)
                 elif mode == 'z':
                     standing.stableStance(config)
                     break

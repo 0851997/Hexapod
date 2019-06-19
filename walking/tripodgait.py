@@ -49,7 +49,7 @@ def reverse(config, time):
     config.serialConn.write("#14P1861#1P1861#25P1139T50\r".encode())
     sleep(0.05)
 
-def turnRight(config):
+def turnRight(config, time):
     config.serialConn.write("#29P1722#8P1500#16P1278#14P2056#1P2056#25P944#13P1278#0P1722#24P1500T50\r".encode())
     sleep(0.05)
     config.serialConn.write("#29P1922#8P1700#16P1478#14P1861#1P1861#25P1139#13P1078#0P1522#24P1300T50\r".encode())
@@ -67,7 +67,7 @@ def turnRight(config):
     config.serialConn.write("#14P1861#1P1861#25P1139T50\r".encode())
     sleep(time)
 
-def turnLeft(config):
+def turnLeft(config, time):
     config.serialConn.write("#29P1722#8P1500#16P1278#14P2056#1P2056#25P944#13P1278#0P1722#24P1500T50\r".encode())
     sleep(0.05)
     config.serialConn.write("#29P1522#8P1300#16P1078#14P1861#1P1861#25P1139#13P1478#0P1922#24P1700T50\r".encode())
