@@ -58,13 +58,13 @@ try:
             #turnRightBoundary = 555 - 640
             #print(connection.data_arr)
             while (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
-                walking.turnLeft(config)
+                walking.turnLeft(config,0.5)
                 end=time.time()
                 if(end-connection.start > 5):
                     standing.stableStance(config)
 
             while (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
-                walking.strafeLeft(config,0.05)
+                walking.strafeLeft(config,0.5)
                 end=time.time()
                 if(end-connection.start > 5):
                     standing.stableStance(config)
@@ -76,13 +76,13 @@ try:
                     standing.stableStance(config)
                     
             while (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
-                walking.strafeRight(config,0.05)
+                walking.strafeRight(config,0.5)
                 end=time.time()
                 if(end-connection.start > 5):
                     standing.stableStance(config)
 
             while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
-                walking.turnRight(config)
+                walking.turnRight(config,0.5)
                 end=time.time()
                 if(end-connection.start > 5):
                     standing.stableStance(config)
