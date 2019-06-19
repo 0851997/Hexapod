@@ -10,6 +10,7 @@ class Server:
         self.rectCenterWidth = 300
         self.ready = ready
         self.s = None
+        self.previous = None
 
     def connect(self):
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -24,7 +25,6 @@ class Server:
             data = self.conn.recv(4096)
             if(data!=b''):
                 self.data_arr = pickle.loads(data)
-                self.previous=self.data_arr
                 self.dimensionRectangle, self.rectCenter, self.distanceCenterToBorder= self.data_arr
                 print(self.data_arr)
 

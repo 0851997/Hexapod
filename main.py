@@ -16,7 +16,7 @@ config.serialConn.close()
 config.serialConn.open()
 
 ready = threading.Event()
-connection = server.Server('192.168.43.5',9000,ready)
+connection = server.Server('192.168.43.5',8888,ready)
 mythread = threading.Thread(target=connection.connect)
 mythread.start()
 ready.wait()
@@ -29,7 +29,7 @@ try:
         timeout = time.time() + 5
         # while(True):
         #     mode = input("Press a key for movement command: ")
-        #     print(connection.data_arr)
+        #     print(connection.rectCenterWidth)
         #     for i in range(3):
         #         if mode == 'q':
         #             walking.strafeLeft(config, 0.05)
@@ -57,41 +57,46 @@ try:
             #forwardBackwardBoundary = 224 - 416
             #strafeRightBoundary = 416 - 555
             #turnRightBoundary = 555 - 640
-            #print(connection.data_arr)
+            #print(connection.rectCenterWidth)
             while (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 walking.turnLeft(config,0.5)
                 now =0
-                if connection.previous == connection.data_arr and now==1:
+                if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
                 now +=1
+                connection.previous=connection.rectCenterWidth
                     
             while (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
                 walking.strafeLeft(config,0.5)
                 now =0
-                if connection.previous == connection.data_arr and now==1:
+                if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
                 now +=1
+                connection.previous=connection.rectCenterWidth
 
             while (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
                 print ("random")#if personYLocationBorder
                 now =0
-                if connection.previous == connection.data_arr and now==1:
+                if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
                 now +=1
+                connection.previous=connection.rectCenterWidth
                     
             while (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
                 walking.strafeRight(config,0.5)
                 now =0
-                if connection.previous == connection.data_arr and now==1:
+                if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
                 now +=1
+                connection.previous=connection.rectCenterWidth
 
-            while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 10055):
+            while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
                 walking.turnRight(config,0.5)
                 now =0
-                if connection.previous == connection.data_arr and now==1:
+                if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
                 now +=1
+                connection.previous=connection.rectCenterWidth
 
 except KeyboardInterrupt:
     standing.sit(config)
