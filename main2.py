@@ -28,18 +28,17 @@ try:
         standing.stableStance(config)
         while(True):
             mode = input("Press a key for movement command: ")
-            print(connection.data_arr)
             for i in range(3):
                 if mode == 'q':
-                    walking.strafeLeft(config, 0.05)
+                    walking.strafeLeft(config, 0.5)
                 elif mode == 'w':
-                    walking.tripodWalking(config, 0.05)
+                    walking.tripodWalking(config, 0.5)
                 elif mode == 'e':
-                    walking.strafeRight(config, 0.05)
+                    walking.strafeRight(config, 0.5)
                 elif mode == 'a':
                     walking.turnLeft(config)
                 elif mode == 's':
-                    walking.reverse(config, 0.05)
+                    walking.reverse(config, 0.5)
                 elif mode == 'd':
                     walking.turnRight(config)
                 elif mode == 'z':
