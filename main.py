@@ -26,10 +26,7 @@ thread.start()
 try:
     if config.serialConn.isOpen():
         standing.stableStance(config)
-        global start
-        start = time.time()
-        global end
-        end = start+5
+        timeout = time.time() + 5
         # while(True):
         #     mode = input("Press a key for movement command: ")
         #     print(connection.data_arr)
@@ -61,13 +58,13 @@ try:
             #strafeRightBoundary = 416 - 555
             #turnRightBoundary = 555 - 640
             #print(connection.data_arr)
-            start=time.time()
             while (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
+                now = 0
                 walking.turnLeft(config,0.5)
-                
-                if(end-start > 5):
+                if now == 5 or time.time() > timeout:
                     standing.stableStance(config)
-
+                    break
+                now -= 1
             while (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
                 walking.strafeLeft(config,0.5)
                 
