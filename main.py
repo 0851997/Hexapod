@@ -93,11 +93,11 @@ try:
                     standing.stableStance(config, 0.1)
                 elif connection.dimensionRectangleWidth > 220 and connection.dimensionRectangleWidth < 265:
                     print('stand')
-                    walking.tripodWalking(config, 0.5)
+                    standing.stableStance(config, 0.5)
                     standing.stableStance(config, 0.1)
                 elif connection.dimensionRectangleWidth > 265 and connection.dimensionRectangleWidth < 615:
                     print('reverse')
-                    walking.tripodWalking(config, 0.5)
+                    walking.reverse(config, 0.5)
                     standing.stableStance(config, 0.1)
                 #connection.previous=connection.rectCenterWidth
                 # now =0
