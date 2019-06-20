@@ -86,7 +86,7 @@ def turnLeft(config, time):
     sleep(time)
 
 def strafeLeft(config, time):
-    standing.stableStance(config)
+    #standing.stableStance(config, 0.2)
     config.serialConn.write("#30P1477#25P1477#17P1477 #14P1522#9P1522#1P1522 T50\r".encode())             #Higher standing stance
     sleep(time)
     config.serialConn.write("#25P1177 #9P1822 T50\r".encode())                                            #Center legs position high
@@ -113,7 +113,7 @@ def strafeLeft(config, time):
     sleep(0.05)
 
 def strafeRight(config, time):
-    standing.stableStance(config)
+    #standing.stableStance(config, 0.2)
     config.serialConn.write("#30P1477#25P1477#17P1477 #14P1522#9P1522#1P1522 #26P1255 #8P1600 T50\r".encode())             #Higher standing stance
     sleep(time)
     config.serialConn.write("#25P1177 #9P1822 T50\r".encode())                                            #Center legs position high
