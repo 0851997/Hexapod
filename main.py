@@ -84,14 +84,14 @@ try:
                 #stand 220 - 265
                 #back 265 - 615
                 print('mid')
-                #int(connection.dimensionRectangleWidth)
-                while int(connection.dimensionRectangleWidth) > 85 and int(connection.dimensionRectangleWidth) < 220:
+                #connection.dimensionRectangleWidth
+                while connection.dimensionRectangleWidth > 85 and connection.dimensionRectangleWidth < 220:
                     print('forward')
                     walking.tripodWalking(config, 1)
-                while int(connection.dimensionRectangleWidth) > 220 and int(connection.dimensionRectangleWidth) < 265:
+                while connection.dimensionRectangleWidth > 220 and connection.dimensionRectangleWidth < 265:
                     print('stand')
                     walking.tripodWalking(config, 1)
-                while int(connection.dimensionRectangleWidth) > 265 and int(connection.dimensionRectangleWidth) < 615:
+                while connection.dimensionRectangleWidth > 265 and connection.dimensionRectangleWidth < 615:
                     print('reverse')
                     walking.tripodWalking(config, 1)
                 #connection.previous=connection.rectCenterWidth

@@ -8,6 +8,7 @@ class Server:
         self.HOST = ipAddr
         self.PORT = port
         self.rectCenterWidth = 300
+        self.dimensionRectangleWidth = 0
         self.ready = ready
         self.s = None
         self.previous = None
