@@ -52,7 +52,7 @@ def reverse(config, time):
 def turnRight(config, time):
     config.serialConn.write("#29P1722#8P1500#16P1278#14P2056#1P2056#25P944#13P1278#0P1722#24P1500T50\r".encode())
     sleep(time)
-    config.serialConn.write("#29P1922#8P1700#16P1478#14P1861#1P1861#25P1139#13P1078#0P1522#24P1300T50\r".encode())
+    config.serialConn.write("#29P1822#8P1600#16P1378#14P1861#1P1861#25P1139#13P1178#0P1622#24P1400T50\r".encode())
     sleep(time)
     config.serialConn.write("#14P1722#1P1722#25P1277T50\r".encode())
     sleep(time)
@@ -60,7 +60,7 @@ def turnRight(config, time):
     sleep(time)
     config.serialConn.write("#30P944#9P2056#17P944#29P1722#8P1500#16P1278#13P1278#0P1722#24P1500T50\r".encode())
     sleep(time)
-    config.serialConn.write("#30P1139#9P1861#17P1139#29P1522#8P1300#16P1078#13P1478#0P1922#24P1700T50\r".encode())
+    config.serialConn.write("#30P1139#9P1861#17P1139#29P1622#8P1400#16P1178#13P1378#0P1822#24P1600T50\r".encode())
     sleep(time)
     config.serialConn.write("#30P1277#9P1722#17P1277T50\r".encode())
     sleep(time)
@@ -70,7 +70,7 @@ def turnRight(config, time):
 def turnLeft(config, time):
     config.serialConn.write("#29P1722#8P1500#16P1278#14P2056#1P2056#25P944#13P1278#0P1722#24P1500T50\r".encode())
     sleep(time)
-    config.serialConn.write("#29P1522#8P1300#16P1078#14P1861#1P1861#25P1139#13P1478#0P1922#24P1700T50\r".encode())
+    config.serialConn.write("#29P1622#8P1400#16P1178#14P1861#1P1861#25P1139#13P1378#0P1822#24P1600T50\r".encode())
     sleep(time)
     config.serialConn.write("#14P1722#1P1722#25P1277T50\r".encode())
     sleep(time)
@@ -78,12 +78,12 @@ def turnLeft(config, time):
     sleep(time)
     config.serialConn.write("#30P944#9P2056#17P944#29P1722#8P1500#16P1278#13P1278#0P1722#24P1500T50\r".encode())
     sleep(time)
-    config.serialConn.write("#30P1139#9P1861#17P1139#29P1922#8P1700#16P1478#13P1078#0P1522#24P1300T50\r".encode())
+    config.serialConn.write("#30P1139#9P1861#17P1139#29P1822#8P1600#16P1378#13P1178#0P1622#24P1400T50\r".encode())
     sleep(time)
     config.serialConn.write("#30P1277#9P1722#17P1277T50\r".encode())
     sleep(time)
     config.serialConn.write("#14P1861#1P1861#25P1139T50\r".encode())
-    sleep(time)
+    sleep(time))
 
 def strafeLeft(config, time):
     standing.stableStance(config, 0.2)
