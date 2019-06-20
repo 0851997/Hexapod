@@ -38,11 +38,13 @@ try:
                 elif mode == 'a':
                     #we are testing this now
                     walking.turnLeft(config, 3)
+                    break
                 elif mode == 's':
                     walking.reverse(config, 0.5)
                 elif mode == 'd':
                     #we are testing this now
                     walking.turnRight(config, 3)
+                    break
                 elif mode == 'z':
                     standing.stableStance(config, 0.2)
                     break
