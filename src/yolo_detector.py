@@ -8,14 +8,19 @@ from imutils.video import VideoStream
 import time
 import cv2
 import os
+import socket
 
 # Parameters to run this program
 ap = argparse.ArgumentParser()
 ap.add_argument("-y", "--yolo", required=True,
 	help="base path to YOLO directory")
-ap.add_argument("-c", "--confidence", type=float, default=0.8, #0.5
+ap.add_argument("-IP", "--ip_address", type=str, required=True,
+				help="Set the IP address of the BeagleBone")
+ap.add_argument("-p", "--port", type=int, required=True,
+				help="Set the port of the BeagleBone")
+ap.add_argument("-c", "--confidence", type=float, default=0.5,
 	help="minimum probability to filter weak detections")
-ap.add_argument("-t", "--threshold", type=float, default=0.3, #0.3
+ap.add_argument("-t", "--threshold", type=float, default=0.3,
 	help="threshold when applyong non-maxima suppression")
 args = vars(ap.parse_args())
 
@@ -26,8 +31,8 @@ np.random.seed(42)
 COLORS = np.random.randint(0, 255, size=(len(LABELS), 3),
 	dtype="uint8")
 
-weightsPath = os.path.sep.join([args["yolo"], "yolov3.weights"])
-configPath = os.path.sep.join([args["yolo"], "yolov3.cfg"])
+weightsPath = os.path.sep.join([args["yolo"], "yolov3-tiny.weights"])
+configPath = os.path.sep.join([args["yolo"], "yolov3-tiny.cfg"])
 
 print("[INFO] loading YOLO from disk...")
 net = cv2.dnn.readNetFromDarknet(configPath, weightsPath)
@@ -39,6 +44,8 @@ time.sleep(1.0)
 (W, H) = (None, None)
 
 lastPosition = (0, 0)
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 while True:
 	frame = vs.read()
@@ -98,12 +105,16 @@ while True:
 				print("[INFO] Center coordinates of the found person 			:", rectCenter) 				#<---- rectCenter is the center point of the found person
 				print("[INFO] From the center to the border of the rectangle 	:", distanceCenterToBorder) 	#<---- distanceCenterToBorder is the distance between the found person center and the drawn border around it
 				print("")
-				# text = "{}: {:.4f}".format(LABELS[classIDs[i]],
-				# 	confidences[i])
+				bytesMessageDimensions = bytes(str(dimensionsRectangle), 'utf-8')
+				bytesMessageRectCenter = bytes(str(rectCenter), 'utf-8')
+				bytesMessageDistanceCenterToBorder = bytes(str(rectCenter), 'utf-8')
+				sock.sendto(bytes(str('Width and Height of the found person:\x20'), 'utf-8') + bytesMessageDimensions, (args["ip_address"], args["port"]))
+				sock.sendto(bytes(str('Center coordinates of the found person:\x20'), 'utf-8') + bytesMessageRectCenter, (args["ip_address"], args["port"]))
+				sock.sendto(bytes(str('Width and Height of the found person:\x20'), 'utf-8') + bytesMessageDistanceCenterToBorder, (args["ip_address"], args["port"]))
 				cv2.putText(frame, "Tracked Person", (x, y - 5),
 					cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
-			if (rectCenter[0] - 50) <= lastPosition[0] <= (rectCenter[0] + 50):   # Check if the x point is too far away from the last x point
-				if (rectCenter[1] - 50) <= lastPosition[1] <= (rectCenter[1] + 50):  # Check if the y point is too far away from the last y point
+			if (rectCenter[0] - 200) <= lastPosition[0] <= (rectCenter[0] + 200):   # Check if the x point is too far away from the last x point
+				if (rectCenter[1] - 200) <= lastPosition[1] <= (rectCenter[1] + 200):  # Check if the y point is too far away from the last y point
 					color = [int(c) for c in COLORS[classIDs[i]]]
 					cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
 					dimensionsRectangle = (((x + w) - x), ((y + h) - y))
@@ -115,8 +126,12 @@ while True:
 					print("[INFO] Center coordinates of the found person 			:", rectCenter)
 					print("[INFO] From the center to the border of the rectangle 	:", distanceCenterToBorder)
 					print("")
-					# text = "{}: {:.4f}".format(LABELS[classIDs[i]],
-					# 						   confidences[i])
+					bytesMessageDimensions = bytes(str(dimensionsRectangle), 'utf-8')
+					bytesMessageRectCenter = bytes(str(rectCenter), 'utf-8')
+					bytesMessageDistanceCenterToBorder = bytes(str(rectCenter), 'utf-8')
+					sock.sendto(bytes(str('Width and Height of the found person:\x20'), 'utf-8') + bytesMessageDimensions, (args["ip_address"], args["port"]))
+					sock.sendto(bytes(str('Center coordinates of the found person:\x20'), 'utf-8') + bytesMessageRectCenter, (args["ip_address"], args["port"]))
+					sock.sendto(bytes(str('Width and Height of the found person:\x20'), 'utf-8') + bytesMessageDistanceCenterToBorder, (args["ip_address"], args["port"]))
 					cv2.putText(frame, "Tracked Person", (x, y - 5),
 								cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
 			else:
