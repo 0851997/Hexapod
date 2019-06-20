@@ -59,7 +59,7 @@ try:
             #strafeRightBoundary = 416 - 555
             #turnRightBoundary = 555 - 640
             #print(connection.rectCenterWidth)
-            while (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
+            if (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 walking.turnLeft(config, 1)
                 print('turnleft')
                 # now =0
@@ -69,7 +69,7 @@ try:
                 # now +=1
                 # connection.previous=connection.rectCenterWidth
                     
-            while (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
+            elif (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
                 walking.strafeLeft(config, 1)
                 print('strafeleft')
                 #now =0
@@ -79,19 +79,19 @@ try:
                 # now +=1
                 # connection.previous=connection.rectCenterWidth
 
-            while (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
+            elif (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
                 #front 85 - 220
                 #stand 220 - 265
                 #back 265 - 615
                 print('mid')
                 #connection.dimensionRectangleWidth
-                while connection.dimensionRectangleWidth > 85 and connection.dimensionRectangleWidth < 220:
+                if connection.dimensionRectangleWidth > 85 and connection.dimensionRectangleWidth < 220:
                     print('forward')
                     walking.tripodWalking(config, 1)
-                while connection.dimensionRectangleWidth > 220 and connection.dimensionRectangleWidth < 265:
+                elif connection.dimensionRectangleWidth > 220 and connection.dimensionRectangleWidth < 265:
                     print('stand')
                     walking.tripodWalking(config, 1)
-                while connection.dimensionRectangleWidth > 265 and connection.dimensionRectangleWidth < 615:
+                elif connection.dimensionRectangleWidth > 265 and connection.dimensionRectangleWidth < 615:
                     print('reverse')
                     walking.tripodWalking(config, 1)
                 #connection.previous=connection.rectCenterWidth
@@ -102,7 +102,7 @@ try:
                 # now +=1
                 # connection.previous=connection.rectCenterWidth
                     
-            while (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
+            elif (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
                 walking.strafeRight(config, 1)
                 print('straferight')
                 # now =0
@@ -112,7 +112,7 @@ try:
                 # now +=1
                 # connection.previous=connection.rectCenterWidth
 
-            while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
+            elif (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
                 walking.turnRight(config, 1)
                 print('turnright')
                 # now =0
@@ -122,7 +122,7 @@ try:
                 # now +=1
                 # connection.previous=connection.rectCenterWidth
 
-            if connection.rectCenterWidth < 0 or connection.rectCenterWidth > 640:
+            elif connection.rectCenterWidth < 0 or connection.rectCenterWidth > 640:
                 standing.stableStance(config)
                 print('standing pause')
                 #break
