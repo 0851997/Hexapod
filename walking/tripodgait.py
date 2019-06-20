@@ -83,7 +83,7 @@ def turnLeft(config, time):
     config.serialConn.write("#30P1277#9P1722#17P1277T50\r".encode())
     sleep(time)
     config.serialConn.write("#14P1861#1P1861#25P1139T50\r".encode())
-    sleep(time))
+    sleep(time)
 
 def strafeLeft(config, time):
     standing.stableStance(config, 0.2)
