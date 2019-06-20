@@ -1,5 +1,5 @@
 # USAGE COMMAND:
-# python yolo_pickle_client.py --yolo yolo-coco
+# python yolo_pickle_client.py --yolo yolo-coco1
 # -IP 192.168.43.189 -p 10000
 
 import numpy as np
@@ -33,8 +33,8 @@ np.random.seed(42)
 COLORS = np.random.randint(0, 255, size=(len(LABELS), 3),
 	dtype="uint8")
 
-weightsPath = os.path.sep.join([args["yolo"], "yolov3-tiny.weights"])
-configPath = os.path.sep.join([args["yolo"], "yolov3-tiny.cfg"])
+weightsPath = os.path.sep.join([args["yolo"], "yolov3.weights"])
+configPath = os.path.sep.join([args["yolo"], "yolov3.cfg"])
 
 print("[INFO] loading YOLO from disk...")
 net = cv2.dnn.readNetFromDarknet(configPath, weightsPath)
@@ -47,7 +47,7 @@ time.sleep(1.0)
 
 lastPosition = (0, 0)
 
-IP = "192.168.43.31"
+IP = "192.168.43.189"
 PORT = 9000
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((IP, PORT))
