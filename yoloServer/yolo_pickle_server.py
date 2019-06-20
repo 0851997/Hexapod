@@ -35,3 +35,5 @@ class Server:
                 self.values = self.dimensionRectangleWidth, self.dimensionRectangleHeight, self.rectCenterWidth, self.rectCenterHeight, self.distancBorderWidth, self.distanceBorderHeight
                 print(self.values)
                 self.conn.send(data)
+            else:
+                self.rectCenterWidth=1000

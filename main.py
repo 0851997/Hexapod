@@ -59,7 +59,7 @@ try:
             #turnRightBoundary = 555 - 640
             #print(connection.rectCenterWidth)
             while (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
-                walking.turnLeft(config,0.5)
+                walking.turnLeft(config, 1)
                 now =0
                 if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
@@ -68,7 +68,7 @@ try:
                 connection.previous=connection.rectCenterWidth
                     
             while (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
-                walking.strafeLeft(config,0.5)
+                walking.strafeLeft(config, 1)
                 now =0
                 if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
@@ -77,7 +77,17 @@ try:
                 connection.previous=connection.rectCenterWidth
 
             while (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
-                print ("random")#if personYLocationBorder
+                #front 85 - 220
+                #stand 220 - 265
+                #back 265 - 615
+                #connection.dimensionRectangleWidth
+                while connection.dimensionRectangleWidth > 85 and connection.dimensionRectangleWidth < 220:
+                    walking.tripodWalking(config, 1)
+                while connection.dimensionRectangleWidth > 220 and connection.dimensionRectangleWidth < 265:
+                    walking.tripodWalking(config, 1)
+                while connection.dimensionRectangleWidth > 265 and connection.dimensionRectangleWidth < 615:
+                    walking.tripodWalking(config, 1)
+                connection.previous=connection.rectCenterWidth
                 now =0
                 if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
@@ -86,7 +96,7 @@ try:
                 connection.previous=connection.rectCenterWidth
                     
             while (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
-                walking.strafeRight(config,0.5)
+                walking.strafeRight(config, 1)
                 now =0
                 if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
@@ -95,13 +105,19 @@ try:
                 connection.previous=connection.rectCenterWidth
 
             while (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
-                walking.turnRight(config,0.5)
+                walking.turnRight(config, 1)
                 now =0
                 if connection.previous == connection.rectCenterWidth and now==1:
                     standing.stableStance(config)
                     break
                 now +=1
                 connection.previous=connection.rectCenterWidth
+            if connection.rectCenterWidth < 0 or connection.rectCenterWidth > 640:
+                standing.stableStance(config)
+                break
+            else:
+                standing.stableStance(config)
+                break
             time.sleep(2)
 
 except KeyboardInterrupt:
