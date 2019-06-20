@@ -111,8 +111,11 @@ while True:
                 print("[INFO] From the center to the border of the rectangle 	:", distanceCenterToBorder) 	#<---- distanceCenterToBorder is the distance between the found person center and the drawn border around it
                 print("")
                 
-                if (dimensionsRectangle != None or rectCenter != None or distanceCenterToBorder != None):
-                    tup = (dimensionsRectangle, rectCenter, distanceCenterToBorder)
+                widthDimension, heightDimension = dimensionsRectangle
+                rectWidth, rectHeight = rectCenter
+
+                if (rectWidth != None or widthDimension != None):
+                    tup = (rectWidth, widthDimension)
                     data_string = pickle.dumps(tup)
                     s.send(data_string)
 
@@ -136,8 +139,11 @@ while True:
                     print("[INFO] From the center to the border of the rectangle 	:", distanceCenterToBorder)
                     print("")
 
-                    if (dimensionsRectangle != None or rectCenter != None or distanceCenterToBorder != None):
-                        tup2 = (dimensionsRectangle, rectCenter, distanceCenterToBorder)
+                    widthDimension, heightDimension = dimensionsRectangle
+                    rectWidth, rectHeight = rectCenter
+
+                    if (rectWidth != None or widthDimension != None):
+                        tup2 = (rectWidth, widthDimension)
                         data_string2 = pickle.dumps(tup2)
                         s.send(data_string2)
 
