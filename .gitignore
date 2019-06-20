@@ -1,5 +1,10 @@
 #Trained Models
 src/yolo-coco/*
+<<<<<<< HEAD
 src/yolo-coco1/*
+=======
+>>>>>>> 518de3209402af231053b9aad98039745bbccd70
 /.idea/*
 __pycache__
+.project
+.pydevproject
