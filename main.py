@@ -60,8 +60,8 @@ try:
             #turnRightBoundary = 555 - 640
             #print(connection.rectCenterWidth)
             if (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
+                standing.stableStance(config, 0.2)
                 walking.turnLeft(config, 0.5)
-                standing.stableStance(config, 0.1)
                 print('turnleft')
                 # now =0
                 # if connection.previous == connection.rectCenterWidth and now==1:
@@ -71,8 +71,8 @@ try:
                 # connection.previous=connection.rectCenterWidth
                     
             elif (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
+                standing.stableStance(config, 0.2)
                 walking.strafeLeft(config, 0.5)
-                standing.stableStance(config, 0.1)
                 print('strafeleft')
                 #now =0
                 # if connection.previous == connection.rectCenterWidth and now==1:
@@ -88,17 +88,16 @@ try:
                 print('mid')
                 #connection.dimensionRectangleWidth
                 if connection.dimensionRectangleWidth > 85 and connection.dimensionRectangleWidth < 220:
-                    print('forward')
+                    standing.stableStance(config, 0.2)
                     walking.tripodWalking(config, 0.5)
-                    standing.stableStance(config, 0.1)
+                    print('forward')
                 elif connection.dimensionRectangleWidth > 220 and connection.dimensionRectangleWidth < 265:
+                    standing.stableStance(config, 0.2)
                     print('stand')
-                    standing.stableStance(config, 0.5)
-                    standing.stableStance(config, 0.1)
                 elif connection.dimensionRectangleWidth > 265 and connection.dimensionRectangleWidth < 615:
-                    print('reverse')
+                    standing.stableStance(config, 0.2)
                     walking.reverse(config, 0.5)
-                    standing.stableStance(config, 0.1)
+                    print('reverse')
                 #connection.previous=connection.rectCenterWidth
                 # now =0
                 # if connection.previous == connection.rectCenterWidth and now==1:
@@ -109,7 +108,6 @@ try:
                     
             elif (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
                 walking.strafeRight(config, 0.5)
-                standing.stableStance(config, 0.1)
                 print('straferight')
                 # now =0
                 # if connection.previous == connection.rectCenterWidth and now==1:
@@ -120,7 +118,6 @@ try:
 
             elif (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
                 walking.turnRight(config, 0.5)
-                standing.stableStance(config, 0.1)
                 print('turnright')
                 # now =0
                 # if connection.previous == connection.rectCenterWidth and now==1:
