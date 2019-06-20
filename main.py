@@ -71,7 +71,6 @@ try:
                 # connection.previous=connection.rectCenterWidth
                     
             elif (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
-                standing.stableStance(config, 0.2)
                 walking.strafeLeft(config, 0.5)
                 print('strafeleft')
                 #now =0
