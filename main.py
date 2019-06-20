@@ -26,115 +26,38 @@ thread.start()
 try:
     if config.serialConn.isOpen():
         standing.stableStance(config, 0.2)
-        #timeout = time.time() + 5
-        # while(True):
-        #     mode = input("Press a key for movement command: ")
-        #     print(connection.rectCenterWidth)
-        #     for i in range(3):
-        #         if mode == 'q':
-        #             walking.strafeLeft(config, 0.05)
-        #         elif mode == 'w':
-        #             walking.tripodWalking(config, 0.05)
-        #         elif mode == 'e':
-        #             walking.strafeRight(config, 0.05)
-        #         elif mode == 'a':
-        #             walking.turnLeft(config)
-        #         elif mode == 's':
-        #             walking.reverse(config, 0.05)
-        #         elif mode == 'd':
-        #             walking.turnRight(config)
-        #         elif mode == 'z':
-        #             standing.stableStance(config, 0.2)
-        #             #break
-        #         elif mode == 'x':
-        #             standing.sit(config)
-        #             #break
-                    
-        #THIS IS THE INTERFACE FOR THE END OF THE PROJECT
         while(True):
-            print('while true loop')
             #turnLeftBoudaries = 0 - 85
             #strafeLeftBoundary = 85 - 224
             #forwardBackwardBoundary = 224 - 416
             #strafeRightBoundary = 416 - 555
             #turnRightBoundary = 555 - 640
-            #print(connection.rectCenterWidth)
-            if (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
-                standing.stableStance(config, 0.2)
-                walking.turnLeft(config, 0.5)
-                print('turnleft')
-                # now =0
-                # if connection.previous == connection.rectCenterWidth and now==1:
-                #     standing.stableStance(config, 0.2)
-                #     #break
-                # now +=1
-                # connection.previous=connection.rectCenterWidth
-                    
-            elif (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
-                walking.strafeLeft(config, 0.5)
-                print('strafeleft')
-                #now =0
-                # if connection.previous == connection.rectCenterWidth and now==1:
-                #     standing.stableStance(config, 0.2)
-                #     #break
-                # now +=1
-                # connection.previous=connection.rectCenterWidth
-
-            elif (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
-                #front 85 - 220
-                #stand 220 - 265
-                #back 265 - 615
-                print('mid')
-                #connection.dimensionRectangleWidth
-                if connection.dimensionRectangleWidth > 85 and connection.dimensionRectangleWidth < 220:
+            
+            if (connection.rectCenterWidth < 112 and connection.rectCenterWidth > 0):
+                walking.turnLeft(config, 0.2)
+            elif (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 112):
+                walking.strafeLeft(config, 0.2)
+            elif (connection.rectCenterWidth < 406 and connection.rectCenterWidth > 278):
+                #total 90 - 176
+                #front 90 - 119
+                if connection.dimensionRectangleWidth > 90 and connection.dimensionRectangleWidth < 119:
+                    walking.tripodWalking(config, 0.2)
+                #stand 119 - 147
+                elif connection.dimensionRectangleWidth > 119 and connection.dimensionRectangleWidth < 147:
                     standing.stableStance(config, 0.2)
-                    walking.tripodWalking(config, 0.5)
-                    print('forward')
-                elif connection.dimensionRectangleWidth > 220 and connection.dimensionRectangleWidth < 265:
-                    standing.stableStance(config, 0.2)
-                    print('stand')
-                elif connection.dimensionRectangleWidth > 265 and connection.dimensionRectangleWidth < 615:
-                    standing.stableStance(config, 0.2)
-                    walking.reverse(config, 0.5)
-                    print('reverse')
-                #connection.previous=connection.rectCenterWidth
-                # now =0
-                # if connection.previous == connection.rectCenterWidth and now==1:
-                #     standing.stableStance(config, 0.2)
-                #     #break
-                # now +=1
-                # connection.previous=connection.rectCenterWidth
-                    
-            elif (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
-                walking.strafeRight(config, 0.5)
-                print('straferight')
-                # now =0
-                # if connection.previous == connection.rectCenterWidth and now==1:
-                #     standing.stableStance(config, 0.2)
-                #     #break
-                # now +=1
-                # connection.previous=connection.rectCenterWidth
-
-            elif (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
-                walking.turnRight(config, 0.5)
-                print('turnright')
-                # now =0
-                # if connection.previous == connection.rectCenterWidth and now==1:
-                #     standing.stableStance(config, 0.2)
-                #     #break
-                # now +=1
-                # connection.previous=connection.rectCenterWidth
-
+                #back 147 - 176
+                elif connection.dimensionRectangleWidth > 147 and connection.dimensionRectangleWidth < 176:
+                    walking.reverse(config, 0.2)
+            elif (connection.rectCenterWidth < 512 and connection.rectCenterWidth > 406):
+                walking.strafeRight(config, 0.2)
+            elif (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 512):
+                walking.turnRight(config, 0.2)
             elif connection.rectCenterWidth < 0 or connection.rectCenterWidth > 640:
                 standing.stableStance(config, 0.2)
-                print('standing pause')
-                #break
             else:
                 standing.stableStance(config, 0.2)
-                print('else')
-                #break
-            time.sleep(0.5)
 
+            time.sleep(0.5)
 except KeyboardInterrupt:
     standing.sit(config)
     config.serialConn.close()
