@@ -25,7 +25,7 @@ config.serialConn.open()
 
 try:
     if config.serialConn.isOpen():
-        standing.stableStance(config)
+        standing.stableStance(config, 0.2)
         while(True):
             mode = input("Press a key for movement command: ")
             for i in range(3):
@@ -42,7 +42,7 @@ try:
                 elif mode == 'd':
                     walking.turnRight(config, 0.5)
                 elif mode == 'z':
-                    standing.stableStance(config)
+                    standing.stableStance(config, 0.2)
                     break
                 elif mode == 'x':
                     standing.sit(config)
