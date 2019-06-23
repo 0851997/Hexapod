@@ -37,7 +37,7 @@ try:
                     walking.strafeRight(config, 0.5)
                 elif mode == 'a':
                     #we are testing this now
-                    walking.turnLeft(config, 1.5)
+                    walking.turnLeft(config, 0.05)
                     break
                 elif mode == 's':
                     walking.reverse(config, 0.5)
