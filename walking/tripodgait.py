@@ -68,7 +68,7 @@ def turnRight(config, time):
     sleep(time)
 
 def turnLeft(config, time):
-    config.serialConn.write("#301277#9P1722#17P1277 #29P1722#8P1500#16P1278 #14P2022#1P2022#25P977 #13P1278#0P1722#24P1500 T50\r".encode())    #tripod B legs vertical high
+    config.serialConn.write("#29P1722#8P1500#16P1278 #14P2022#1P2022#25P977 #13P1278#0P1722#24P1500 T50\r".encode())    #tripod B legs vertical high
     sleep(time)
     config.serialConn.write("#29P1622#8P1400#16P1178 #13P1378#0P1822#24P1600 T50\r".encode())   #movement
     sleep(time)
@@ -78,7 +78,7 @@ def turnLeft(config, time):
     sleep(time)
     config.serialConn.write("#29P1722#8P1500#16P1278 #13P1278#0P1722#24P1500 T50\r".encode())
     sleep(time)
-    config.serialConn.write("#301277#9P1722#17P1277 T50\r".encode())
+    config.serialConn.write("#30P1277#9P1722#17P1277 T50\r".encode())
     sleep(time)
 
 def strafeLeft(config, time):
