@@ -60,6 +60,7 @@ try:
                 walking.strafeRight(config, 0.5)
 
             elif (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 512):
+                standing.stableStance(config, 0.2)
                 walking.turnRight(config, 0.5)
 
             elif connection.rectCenterWidth < 0 or connection.rectCenterWidth > 640:
