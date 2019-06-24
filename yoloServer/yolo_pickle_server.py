@@ -4,7 +4,7 @@ import pickle
 import time
 
 class Server:
-    def __init__(self, ipAddr, port, ready=None):
+    def __init__(self, ipAddr=socket.gethostbyname(socket.gethostname()), port=10000, ready=None):
         self.HOST = ipAddr
         self.PORT = port
         self.rectCenterWidth = 300

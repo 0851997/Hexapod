@@ -34,32 +34,35 @@ try:
             #forwardBackwardBoundary = 224 - 416
             #strafeRightBoundary = 416 - 555
             #turnRightBoundary = 555 - 640
-            if (connection.rectCenterWidth < 112 and connection.rectCenterWidth > 0):
+            if (connection.rectCenterWidth < 85 and connection.rectCenterWidth > 0):
                 standing.stableStance(config)
                 walking.turnLeft(config)
                 
-            elif (connection.rectCenterWidth < 278 and connection.rectCenterWidth > 112):
+            elif (connection.rectCenterWidth < 224 and connection.rectCenterWidth > 85):
                 walking.strafeLeft(config)
                 
-            elif (connection.rectCenterWidth < 406 and connection.rectCenterWidth > 278):
+            elif (connection.rectCenterWidth < 416 and connection.rectCenterWidth > 224):
                 #front 85 - 220
                 #stand 220 - 265
                 #back 265 - 615
-                if connection.dimensionRectangleWidth > 90 and connection.dimensionRectangleWidth < 119:
+                if connection.dimensionRectangleWidth > 85 and connection.dimensionRectangleWidth < 220:
                     standing.stableStance(config)
                     walking.tripodWalking(config)
                     
-                elif connection.dimensionRectangleWidth > 119 and connection.dimensionRectangleWidth < 147:
+                elif connection.dimensionRectangleWidth > 220 and connection.dimensionRectangleWidth < 265:
                     standing.stableStance(config)
 
-                elif connection.dimensionRectangleWidth > 147 and connection.dimensionRectangleWidth < 176:
+                elif connection.dimensionRectangleWidth > 265 and connection.dimensionRectangleWidth < 615:
                     standing.stableStance(config)
                     walking.reverse(config)
+                
+                else:
+                    standing.stableStance(config)
                     
-            elif (connection.rectCenterWidth < 512 and connection.rectCenterWidth > 406):
+            elif (connection.rectCenterWidth < 555 and connection.rectCenterWidth > 416):
                 walking.strafeRight(config)
 
-            elif (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 512):
+            elif (connection.rectCenterWidth < 640 and connection.rectCenterWidth > 555):
                 walking.turnRight(config)
 
             elif connection.rectCenterWidth < 0 or connection.rectCenterWidth > 640:

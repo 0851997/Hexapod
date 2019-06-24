@@ -7,6 +7,9 @@ def stableStance(config):
 def sit(config):
     #sit
     stableStance(config)
-    config.serialConn.write("#30P1139#9P1861#17P1139#14P1861#1P1861#25P1139#29P2022\r".encode())
-    config.serialConn.write("#14P2056#1P2056#25P944#30P944#9P2056#17P944\r".encode())
-    config.serialConn.write("#14P2350#1P2350#25P650#30P650#9P2350#17P650 #31P650#26P650#18P650#2P2350#10P2350#15P2350\r".encode())
+    config.serialConn.write("#30P1139#9P1861#17P1139#14P1861#1P1861#25P1139#29P2022T500\r".encode())
+    sleep(0.5)
+    config.serialConn.write("#14P2056#1P2056#25P944#30P944#9P2056#17P944T500\r".encode())
+    sleep(0.5)
+    config.serialConn.write("#14P2350#1P2350#25P650#30P650#9P2350#17P650 #31P650#26P650#18P650#2P2350#10P2350#15P2350T500\r".encode())
+    sleep(0.5)
