@@ -4,7 +4,7 @@ import pickle
 import time
 
 class Server:
-    def __init__(self, ipAddr, port, ready=None):
+    def __init__(self, ipAddr=socket.gethostbyname(socket.gethostname()), port=10000, ready=None):
         self.HOST = ipAddr
         self.PORT = port
         self.rectCenterWidth = 300
@@ -15,7 +15,7 @@ class Server:
     def connect(self):
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.s.bind((self.HOST, self.PORT))
-        self.s.listen(1)
+        self.s.listen()
         self.conn, self.addr = self.s.accept()
         self.ready.set()
 

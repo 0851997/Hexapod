@@ -16,7 +16,7 @@ config.serialConn.close()
 config.serialConn.open()
 
 ready = threading.Event()
-connection = server.Server('192.168.43.5',8787,ready)
+connection = server.Server(8787,ready)
 mythread = threading.Thread(target=connection.connect)
 mythread.start()
 ready.wait()
