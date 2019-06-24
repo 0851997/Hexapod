@@ -25,24 +25,24 @@ config.serialConn.open()
 
 try:
     if config.serialConn.isOpen():
-        standing.stableStance(config, 0.2)
+        standing.stableStance(config)
         while(True):
             mode = input("Press a key for movement command: ")
             for i in range(3):
                 if mode == 'q':
-                    walking.strafeLeft(config, 0.5)
+                    walking.strafeLeft(config)
                 elif mode == 'w':
-                    walking.tripodWalking(config, 0.5)
+                    walking.tripodWalking(config)
                 elif mode == 'e':
-                    walking.strafeRight(config, 0.5)
+                    walking.strafeRight(config)
                 elif mode == 'a':
-                    walking.turnLeft(config, 0.5)
+                    walking.turnLeft(config)
                 elif mode == 's':
-                    walking.reverse(config, 0.5)
+                    walking.reverse(config)
                 elif mode == 'd':
-                    walking.turnRight(config, 0.5)
+                    walking.turnRight(config)
                 elif mode == 'z':
-                    standing.stableStance(config, 0.2)
+                    standing.stableStance(config)
                     break
                 elif mode == 'x':
                     standing.sit(config)
