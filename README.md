@@ -22,3 +22,13 @@ All modules are imported inside [main.py](./main.py). Here is where the main wor
 * Inside [main.py](./main.py) file the module [walking](./walking) can be used to call forward, backward, turning and strafing walking movement functions.
 * Sitting and standing can be found in [stableStance.py](./standing/stableStance.py) in module [standing](./standing). 
 * Modules can be set to execute from [main.py](./main.py). Keyboard interrupt is possible to stop all actions and let the hexapod sit.
+
+
+# Hexapod-PRO78
+To get the Yolo detector to work you will need to download the following [zip file](https://drive.google.com/open?id=1PMZW4vWV5GoeFPflUKIzErvv4S2NUkbg).
+If you have downloaded this zip file extract it and you will need to put it in the **src folder**.
+
+Now you can run the program by executing the following command:
+
+`python yolo_detector.py --yolo yolo-coco`
+
