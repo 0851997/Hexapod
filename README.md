@@ -1,6 +1,7 @@
-# THE ABILITIES OF THE HEXAPOD
+# Hexapod-PRO78
 
-## Movements
+## THE ABILITIES OF THE HEXAPOD
+### Movements
 **The hexapod is equipped with the following walking functionalities:**
 * Forward movement
 * Backward movement
@@ -13,7 +14,7 @@
 * Exceptions are when sitting and standing. 
 * Turns will not be taken with stationary legs.
 
-## Files
+### Files
 Modules are made for the hexapod. Every module is a grouped up set of actions that describe a broader functionality.(e.g. portSetup, standing, walking)
 
 **Modules:**
@@ -23,12 +24,9 @@ All modules are imported inside [main.py](./main.py). Here is where the main wor
 * Sitting and standing can be found in [stableStance.py](./standing/stableStance.py) in module [standing](./standing). 
 * Modules can be set to execute from [main.py](./main.py). Keyboard interrupt is possible to stop all actions and let the hexapod sit.
 
-
-# Hexapod-PRO78
-To get the Yolo detector to work you will need to download the following [zip file](https://drive.google.com/open?id=1PMZW4vWV5GoeFPflUKIzErvv4S2NUkbg).
-If you have downloaded this zip file extract it and you will need to put it in the **src folder**.
+##Computer Vision OpenCV
+To get the Yolo detector to work you will need to download the following [zip file](https://drive.google.com/open?id=1PMZW4vWV5GoeFPflUKIzErvv4S2NUkbg). If you have downloaded this zip file extract it and you will need to put it in the **src folder**.
 
 Now you can run the program by executing the following command:
-
 `python yolo_detector.py --yolo yolo-coco`
 
