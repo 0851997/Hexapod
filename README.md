@@ -1,4 +1,7 @@
 # Hexapod-PRO78
+The Hexapod project consists of two parts.
+* The server side consisting of the hexapod, microcontroller, ssc-32u board and servo motors. The server code is responsible for the movement of the Hexapod and tracking of a person.
+* The client side represents a device on which a webcam can be plugged in. The client code is resposible for running computer vision for detection.
 
 ## THE ABILITIES OF THE HEXAPOD
 ### Movements
@@ -14,10 +17,9 @@
 * Exceptions are when sitting and standing. 
 * Turns will not be taken with stationary legs.
 
-### Files
-Modules are made for the hexapod. Every module is a grouped up set of actions that describe a broader functionality.(e.g. portSetup, standing, walking)
+### Modules
+Modules are made for the hexapod. Every module is a grouped up set of actions that describe a broader functionality.(e.g. portSetup, standing, walking) 
 
-**Modules:**
 All modules are imported inside [main.py](./main.py). Here is where the main work is done.
 * Ports are initialized by importing [portSetup.py](./portSetup/portSetup.py) from [portSetup](./portSetup) and [tripodgait.py](./walking/tripodgait.py) from [walking](./walking) inside [main.py](./main.py) file.
 * Inside [main.py](./main.py) file the module [walking](./walking) can be used to call forward, backward, turning and strafing walking movement functions.
@@ -25,8 +27,6 @@ All modules are imported inside [main.py](./main.py). Here is where the main wor
 * Modules can be set to execute from [main.py](./main.py). Keyboard interrupt is possible to stop all actions and let the hexapod sit.
 
 ## Computer Vision OpenCV
-To get the Yolo detector to work you will need to download the following [zip file](https://drive.google.com/open?id=1PMZW4vWV5GoeFPflUKIzErvv4S2NUkbg). If you have downloaded this zip file extract it and you will need to put it in the **src folder**.
-
-Now you can run the program by executing the following command:
+To get the Yolo detector to work you will need run this command in your command line:
 `python yolo_detector.py --yolo yolo-coco`
 
