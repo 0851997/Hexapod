@@ -27,6 +27,9 @@ All modules are imported inside [main.py](./main.py). Here is where the main wor
 * Modules can be set to execute from [main.py](./main.py). Keyboard interrupt is possible to stop all actions and let the hexapod sit.
 
 ## Computer Vision OpenCV
-To get the Yolo detector to work you will need run this command in your command line:
+* To get the Yolo detector to work first you will need to download Yolo-coco detector files from: https://drive.google.com/file/d/1PMZW4vWV5GoeFPflUKIzErvv4S2NUkbg/view or 
+https://drive.google.com/file/d/131LZwks0UCNibN7mVa-QYs_6M1PkyvBA/view 
+* Then you have to configure the same IP-address and port
+* After that you will need to run this command in your command line:
 `python yolo_detector.py --yolo yolo-coco`
 
